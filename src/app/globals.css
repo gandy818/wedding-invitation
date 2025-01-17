@@ -19,6 +19,21 @@
 * {
   font-family: 'Pretendard', sans-serif;
   color: #1a1a1a;
+
+  /* flex 가운데 정렬 */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  /* 스크롤바 숨기기 */
+  .scroll-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scroll-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 }
 
 body {
