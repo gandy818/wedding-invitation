@@ -16,6 +16,11 @@
   }
 }
 
+/* 갤러리 */
+.pswp img {
+  object-fit: contain;
+}
+
 * {
   font-family: 'Pretendard', sans-serif;
   color: #1a1a1a;
