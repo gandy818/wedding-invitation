@@ -8,7 +8,9 @@ import Calendar from '@/components/Calendar';
 export default function Home() {
   return (
     <div className="max-w-[400px] text-center h-screen overflow-y-scroll w-full mx-auto bg-white scroll-hide pb-5">
-      <h1 className="text-center py-6">with love</h1>
+      <h1 className="text-center py-6" style={{ fontSize: '24px' }}>
+        with love
+      </h1>
 
       {/* 대문 사진 */}
       <div className="w-full px-4">
