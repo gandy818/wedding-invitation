@@ -4,12 +4,25 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function Intro() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imgRef = useRef<HTMLImageElement | null>(null);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
   const [showImage, setShowImage] = useState(false);
   const frameCount = 44;
 
   const currentFrame = (index: number): string =>
     `/images/wood_door/wood_door_${index.toString().padStart(3, '0')}.png`;
+
+  // 모든 이미지 preload
+  useEffect(() => {
+    const preloadImages = () => {
+      for (let i = 1; i <= frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        imagesRef.current[i] = img; // 배열에 저장 (1번부터 시작)
+      }
+    };
+
+    preloadImages();
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -17,14 +30,17 @@ export default function Intro() {
 
     if (!canvas || !context) return;
 
-    imgRef.current = new Image();
-
-    imgRef.current.src = currentFrame(1);
-
-    imgRef.current.onload = () => {
-      if (!context || !imgRef.current) return;
-      context.drawImage(imgRef.current, 0, 0);
+    const render = (index: number) => {
+      const img = imagesRef.current[index];
+      if (!img) return;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(img, 0, 0);
     };
+
+    // 초기 1프레임 표시
+    imagesRef.current[1]?.complete
+      ? render(1)
+      : imagesRef.current[1]?.addEventListener('load', () => render(1));
 
     const handleScroll = () => {
       const scrollTop = window.scrollY; // 현재 스크롤 위치
@@ -32,7 +48,7 @@ export default function Intro() {
       const scrollFraction = scrollTop / maxScrollTop; // 전체 스크롤 중 어디쯤인지 비율로 계산 (0 ~ 1 사이)
       const frameIndex = Math.min(frameCount - 1, Math.ceil(scrollFraction * frameCount)); // 현재 스크롤 위치에 맞는 프레임 번호를 계산
 
-      requestAnimationFrame(() => updateImage(frameIndex + 1)); // 자연스럽게 캔버스를 업데이트하라고 요청
+      requestAnimationFrame(() => render(frameIndex + 1)); // 자연스럽게 캔버스를 업데이트하라고 요청
 
       // 스크롤이 거의 끝나면 showImage를 true로 변경
       if (frameIndex >= frameCount - 1) {
@@ -46,24 +62,6 @@ export default function Intro() {
 
     return () => window.removeEventListener('scroll', handleScroll); // 컴포넌트가 사라질 때 스크롤 이벤트 제거
   }, []);
-
-  // imgRef.current.src 를 새로 지정해서 다른 이미지를 불러온다.
-  const updateImage = (index: number) => {
-    const canvas = canvasRef.current;
-    const context = canvas?.getContext('2d');
-
-    if (!canvas || !context) return;
-
-    imgRef.current = new Image();
-
-    imgRef.current.src = currentFrame(index);
-    imgRef.current.onload = () => {
-      context.clearRect(0, 0, canvas.width, canvas.height); // 새 이미지가 로드되면 캔버스를 깨끗이 지우고
-      if (imgRef.current !== null) {
-        context.drawImage(imgRef.current, 0, 0); // 새로운 이미지를 캔버스에 그린다.
-      }
-    };
-  };
 
   return (
     <div className="relative">
