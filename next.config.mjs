@@ -8,7 +8,7 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: isProd ? '/wedding-invitation' : '',
-  assetPrefix: isProd ? '/wedding-invitation' : '',
+  assetPrefix: isProd ? '/wedding-invitation/' : '',
 };
 
 export default nextConfig;
