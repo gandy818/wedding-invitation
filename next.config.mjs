@@ -1,14 +1,4 @@
 /** @type {import('next').NextConfig} */
-
-const isProd = process.env.NODE_ENV === 'production';
-
-const nextConfig = {
-  output: 'export',
-  images: {
-    unoptimized: true,
-  },
-  basePath: isProd ? '/wedding-invitation' : '',
-  assetPrefix: isProd ? '/wedding-invitation/' : '',
-};
+const nextConfig = {};
 
 export default nextConfig;

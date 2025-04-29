@@ -6,15 +6,13 @@ import images from '../data/gallery.json';
 import Calendar from '@/components/Calendar';
 
 export default function Home() {
-  const prefix = process.env.NODE_ENV === 'production' ? '/wedding-invitation' : '';
-
   return (
     <div className="max-w-[400px] text-center h-screen overflow-y-scroll w-full mx-auto bg-white scroll-hide pb-5">
       <h1 className="text-center py-6">with love</h1>
 
       {/* 대문 사진 */}
       <div className="w-full px-4">
-        <img src={`${prefix}/images/gallery/04.png`} className="rounded-tl-full rounded-tr-full" />
+        <img src={`/images/gallery/04.png`} className="rounded-tl-full rounded-tr-full" />
       </div>
 
       {/* 초대 문구 */}
@@ -33,7 +31,7 @@ export default function Home() {
       <p className="text-[#020817] my-12">신랑 이민호 · 신부 배하윤</p>
 
       {/* 중간 이미지 */}
-      <img src={`${prefix}/images/gallery/05.png`} />
+      <img src={`/images/gallery/05.png`} />
 
       {/* 달력 */}
       <Calendar />
@@ -61,7 +59,7 @@ export default function Home() {
                     <img
                       className="cursor-pointer w-25 h-38 max-w-none mx-auto object-cover"
                       alt={image.alt}
-                      src={`${prefix}${image.source}`}
+                      src={`/${image.source}`}
                       ref={ref}
                       onClick={open}
                     />
