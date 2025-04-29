@@ -21,7 +21,7 @@ export default function Home() {
         미래와 함께 오기 때문이다. <br /> 한 사람의 일생이 오기 때문이다.
       </p>
 
-      <p className="py-11 text-[#555555]">- 정현종, '방문객'</p>
+      <p className="py-11 text-[#555555]">- 정현종, 방문객</p>
 
       <p className="text-[#555555]">
         저희 두 사람이 함께하는 새로운 시작에 <br />

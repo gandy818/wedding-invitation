@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function Intro() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imgRef = useRef<HTMLImageElement>(new Image());
+  const imgRef = useRef<HTMLImageElement | null>(null);
   const [showImage, setShowImage] = useState(false);
   const frameCount = 44;
 
@@ -17,9 +17,12 @@ export default function Intro() {
 
     if (!canvas || !context) return;
 
+    imgRef.current = new Image();
+
     imgRef.current.src = currentFrame(1);
 
     imgRef.current.onload = () => {
+      if (!context || !imgRef.current) return;
       context.drawImage(imgRef.current, 0, 0);
     };
 
@@ -51,10 +54,14 @@ export default function Intro() {
 
     if (!canvas || !context) return;
 
+    imgRef.current = new Image();
+
     imgRef.current.src = currentFrame(index);
     imgRef.current.onload = () => {
       context.clearRect(0, 0, canvas.width, canvas.height); // 새 이미지가 로드되면 캔버스를 깨끗이 지우고
-      context.drawImage(imgRef.current, 0, 0); // 새로운 이미지를 캔버스에 그린다.
+      if (imgRef.current !== null) {
+        context.drawImage(imgRef.current, 0, 0); // 새로운 이미지를 캔버스에 그린다.
+      }
     };
   };
 
