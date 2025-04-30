@@ -16,7 +16,7 @@ export default function Calendar() {
   });
 
   return (
-    <div className="py-10">
+    <div className="py-10 text-center">
       <p className="text-4xl">WEDDING DAY</p>
       <p className="text-[#111] text-sm pt-12">2025년 12월 27일 토요일 | 오전 11시 20분</p>
       <p className="text-[#111] opacity-45 text-sm pt-3">

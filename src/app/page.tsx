@@ -4,14 +4,11 @@ import { Gallery, Item } from 'react-photoswipe-gallery';
 import 'photoswipe/dist/photoswipe.css';
 import images from '../data/gallery.json';
 import Calendar from '@/components/Calendar';
+import Intro from '@/components/Intro';
 
 export default function Home() {
   return (
-    <div className="max-w-[400px] text-center h-screen overflow-y-scroll w-full mx-auto bg-white scroll-hide pb-5">
-      <h1 className="text-center py-6" style={{ fontSize: '24px' }}>
-        with love
-      </h1>
-
+    <div className="max-w-[400px] text-center h-screen overflow-y-scroll w-full mx-auto  scroll-hide pb-5">
       {/* 대문 사진 */}
       <div className="w-full px-4">
         <img src={`/images/gallery/04.png`} className="rounded-tl-full rounded-tr-full" />
