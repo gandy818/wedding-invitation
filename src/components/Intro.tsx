@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Gallery, Item } from 'react-photoswipe-gallery';
 import Calendar from './Calendar';
+import { Gallery, Item } from 'react-photoswipe-gallery';
 import images from '../data/gallery.json';
 
 export default function Intro() {
@@ -34,10 +34,26 @@ export default function Intro() {
     if (!canvas || !context) return;
 
     const render = (index: number) => {
+      const canvas = canvasRef.current;
+      const context = canvas?.getContext('2d');
       const img = imagesRef.current[index];
-      if (!img) return;
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(img, 0, 0);
+      if (!canvas || !context || !img) return;
+
+      // 무조건 세로(화면 높이)를 기준으로 맞춤
+      const targetHeight = window.innerHeight;
+      const drawHeight = targetHeight;
+
+      const imgRatio = img.width / img.height; // 이미지 원본 비율
+      const drawWidth = drawHeight * imgRatio; // 비율에 따라 너비 계산
+
+      const canvasWidth = (canvas.width = window.innerWidth);
+      const canvasHeight = (canvas.height = window.innerHeight);
+
+      const offsetX = (canvasWidth - drawWidth) / 2;
+      const offsetY = 0; // 상단 정렬 원하면 0, 중앙 정렬은 (canvasHeight - drawHeight) / 2
+
+      context.clearRect(0, 0, canvasWidth, canvasHeight);
+      context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
     };
 
     // 초기 1프레임 표시
@@ -69,13 +85,8 @@ export default function Intro() {
   return (
     <div className="relative">
       {/* 긴 스크롤 공간 확보 */}
-      <div className="h-[1200px]">
-        <canvas
-          ref={canvasRef}
-          width={720}
-          height={1200}
-          className="fixed top-0 left-0 w-screen h-auto -z-10"
-        />
+      <div className="h-screen">
+        <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />
       </div>
 
       {/* 캔버스 끝나고 나오는 이미지 */}
@@ -106,13 +117,13 @@ export default function Intro() {
           </div>
 
           {/* 중간 이미지 */}
-          {/* <img src={`/images/gallery/05.png`} /> */}
+          <img src={`/images/gallery/05.png`} />
 
           {/* 달력 */}
-          {/* <Calendar /> */}
+          <Calendar />
 
           {/* 갤러리 */}
-          {/* <div className="py-10 text-center">
+          <div className="py-10 text-center">
             <p className="text-4xl">GALLERY</p>
             <p className="text-[#111] opacity-25 text-sm pt-4 pb-12">
               사진을 클릭하시면 전체 화면 보기가 가능합니다
@@ -144,7 +155,7 @@ export default function Intro() {
                 })}
               </div>
             </Gallery>
-          </div> */}
+          </div>
         </>
       </div>
     </div>
