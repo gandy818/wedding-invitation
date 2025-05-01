@@ -9,10 +9,18 @@ export default function Intro() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [showImage, setShowImage] = useState(false);
-  const frameCount = 80;
+  const frameCount = 215;
+  const [fixedHeight, setFixedHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    // 최초 진입 시 height 저장
+    if (fixedHeight === null) {
+      setFixedHeight(window.innerHeight);
+    }
+  }, []);
 
   const currentFrame = (index: number): string =>
-    `/images/wood_door/wood_door2_${index.toString().padStart(3, '0')}.png`;
+    `/images/wood_door/250429_00${index.toString().padStart(3, '0')}.jpg`;
 
   // 모든 이미지 preload
   useEffect(() => {
@@ -40,7 +48,7 @@ export default function Intro() {
       if (!canvas || !context || !img) return;
 
       // 무조건 세로(화면 높이)를 기준으로 맞춤
-      const targetHeight = window.innerHeight;
+      const targetHeight = fixedHeight ?? window.innerHeight;
       const drawHeight = targetHeight;
 
       const imgRatio = img.width / img.height; // 이미지 원본 비율
