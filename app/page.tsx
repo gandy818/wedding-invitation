@@ -3,6 +3,8 @@ import Main from "../components/Main";
 import WeddingDay from "@/components/WeddingDay";
 import GroomAndBride from "@/components/GroomAndBride";
 import Gallery from "@/components/Gallery";
+import Infomation from "@/components/Infomation";
+import Account from "@/components/Account/Account";
 
 export default function Home() {
   return (
@@ -13,8 +15,8 @@ export default function Home() {
         <WeddingDay />
         <GroomAndBride />
         <Gallery />
-        <section>안내말씀 드립니다</section>
-        <section>마음 전하실 곳 </section>
+        <Infomation />
+        <Account />
         <section>오시는 길</section>
       </main>
     </div>
