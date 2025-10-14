@@ -5,6 +5,7 @@ import GroomAndBride from "@/components/GroomAndBride";
 import Gallery from "@/components/Gallery";
 import Infomation from "@/components/Infomation";
 import Account from "@/components/Account/Account";
+import Location from "@/components/Location";
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
         <Gallery />
         <Infomation />
         <Account />
-        <section>오시는 길</section>
+        <Location />
       </main>
     </div>
   );

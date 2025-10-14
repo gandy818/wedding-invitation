@@ -17,7 +17,7 @@ export default function GroomAndBride() {
         <div className="flex flex-col items-center">
           <div className="relative aspect-[4/3] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
             <Image
-              src="/assets/images/main.jpg"
+              src="/assets/images/groomParents.jpeg"
               alt="groom parents"
               fill
               className="object-cover "
@@ -42,7 +42,7 @@ export default function GroomAndBride() {
         <div className="flex flex-col items-center">
           <div className="relative aspect-[4/3] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
             <Image
-              src="/assets/images/main.jpg"
+              src="/assets/images/brideParents.jpeg"
               alt="bride parents"
               fill
               className="object-cover "
