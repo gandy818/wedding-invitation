@@ -1,15 +1,17 @@
 "use client";
 
+import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import hall from "@/public/assets/images/hall.jpeg";
+import atm from "@/public/assets/images/atm.png";
 import buffet from "@/public/assets/images/buffet.png";
 
-type TabId = "buffet" | "flower" | "dress";
+type TabId = "buffet" | "atm" | "dress";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "buffet", label: "연회장" },
-  { id: "flower", label: "화환안내" },
+  { id: "atm", label: "편의시설안내" },
   { id: "dress", label: "복장안내" },
 ];
 
@@ -17,14 +19,43 @@ export default function BtypeInfomation() {
   const [active, setActive] = useState<TabId>("buffet"); // 기본: 연회장
   const activeIndex = TABS.findIndex((t) => t.id === active);
 
+  const container: Variants = {
+    hidden: { opacity: 0, y: 32 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 3.2,
+        ease: [0.16, 1, 0.3, 1], // 부드러운 easeOut
+        staggerChildren: 0.06,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.9, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
-    <section className="bg-white py-[50px] px-4 text-gray-800">
-      <div className="text-center">
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.35 }} // 섹션의 35%가 보이면 실행, 한 번만
+      className="bg-white py-[50px] px-4 text-gray-800"
+    >
+      <motion.div variants={fadeUp} className="text-center">
         <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">
           INFORMATION
         </p>
         <h2 className="text-2xl font-semibold">안내 말씀드립니다</h2>
-      </div>
+      </motion.div>
 
       <div className="mx-auto mt-10 max-w-4xl">
         <div
@@ -41,9 +72,9 @@ export default function BtypeInfomation() {
               id={`tab-${t.id}`}
               onClick={() => setActive(t.id)}
               className={[
-                "h-12 text-center text-lg transition-colors",
+                "h-12 text-center text-xl transition-colors cursor-pointer",
                 active === t.id
-                  ? "text-[#B5CDA4] font-semibold"
+                  ? "text-[#6f8570] font-semibold"
                   : "text-gray-400",
               ].join(" ")}
             >
@@ -52,7 +83,7 @@ export default function BtypeInfomation() {
           ))}
 
           <span
-            className="pointer-events-none absolute bottom-[-1px] left-0 h-[3px] w-1/3 bg-[#94b07a] transition-transform duration-300"
+            className="pointer-events-none absolute bottom-[-1px] left-0 h-[3px] w-1/3 bg-[#6f8570] transition-transform duration-300"
             style={{ transform: `translateX(${activeIndex * 100}%)` }}
           />
         </div>
@@ -72,29 +103,40 @@ export default function BtypeInfomation() {
               className="h-[300px] object-cover"
               priority
             />
-            <p className="mt-6 leading-8 text-left">
-              연회장은 지하 1층에 있습니다. 음료와 주류가 무제한이니 마음껏
-              즐겨주세요.
-            </p>
+            <ul className="mt-6 leading-8 text-left ml-4 text-lg">
+              <li className="list-disc">
+                연회장은 지하 1층에 있습니다. 에스컬레이터를 이용하시면 더욱
+                편리하게 이동하실 수 있습니다.
+              </li>
+              <li className="list-disc">
+                음료와 주류가 무제한이니 마음껏즐겨주세요.
+              </li>
+            </ul>
           </div>
 
           {/* 화환안내 */}
           <div
-            id="panel-flower"
+            id="panel-atm"
             role="tabpanel"
-            aria-labelledby="tab-flower"
-            hidden={active !== "flower"}
+            aria-labelledby="tab-atm"
+            hidden={active !== "atm"}
           >
             <Image
-              src={buffet}
-              alt="화환 안내 이미지"
+              src={atm}
+              alt="편의시설 안내 이미지"
               className="h-[300px] object-cover"
               priority
             />
-            <p className="mt-6 leading-8 text-left">
-              환경보호를 위해 축하화환은 받고 있지 않습니다. 축하해주시는 마음만
-              감사히 받겠습니다.
-            </p>
+            <ul className="mt-6 leading-8 text-left ml-4 text-lg">
+              <li className="list-disc">
+                1층 로비 2게이트 앞에 국민은행과 하나은행 ATM이 마련되어
+                있습니다.
+              </li>
+              <li className="list-disc">
+                동시 주차 1,200대의 주차공간이 있으니 마음 편히 오셔서 축하해
+                주세요. 무료주차는 2시간 적용됩니다.
+              </li>
+            </ul>
           </div>
 
           {/* 복장안내 */}
@@ -110,13 +152,15 @@ export default function BtypeInfomation() {
               className="h-[300px] object-cover"
               priority
             />
-            <p className="mt-6 leading-8 text-left">
-              밝은 옷도 어울리는 홀입니다. 부담 갖지 마시고 편안한 차림으로
-              참석해주세요.
-            </p>
+            <ul className="mt-6 leading-8 text-left ml-4 text-lg">
+              <li className="list-disc">
+                밝은 옷도 어울리는 홀입니다. 부담 갖지 마시고 편안한 차림으로
+                참석해주세요.
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 }

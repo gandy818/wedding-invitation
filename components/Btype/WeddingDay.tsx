@@ -1,7 +1,40 @@
+"use client";
+
+import { motion, type Variants } from "framer-motion";
+
+const container: Variants = {
+  hidden: { opacity: 0, y: 32 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 3.2,
+      ease: [0.16, 1, 0.3, 1], // 부드러운 easeOut
+      staggerChildren: 0.06,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.9, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
 export default function BtypeWeddingDay() {
   return (
-    <div className="bg-white py-[50px] flex flex-col items-center text-center text-gray-800">
-      <div className="mb-10">
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.35 }} // 섹션의 35%가 보이면 실행, 한 번만
+      className="bg-white py-[50px] flex flex-col items-center text-center text-gray-800"
+    >
+      <motion.div variants={fadeUp} className="mb-10">
         <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">
           WEDDING DAY
         </p>
@@ -14,13 +47,22 @@ export default function BtypeWeddingDay() {
             더베뉴지서울 1층 네이처홀
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      {/* 구분선 */}
-      <div className="w-full max-w-[320px] border-t border-gray-200 my-6" />
+      <motion.p
+        variants={fadeUp}
+        className="text-2xl text-[#D86343] font-black"
+      >
+        12
+      </motion.p>
+
+      <motion.div
+        variants={fadeUp}
+        className="w-full max-w-[320px] border-t border-gray-200 my-6"
+      />
 
       {/* 달력 */}
-      <div className="text-center w-[60%]">
+      <motion.div variants={fadeUp} className="text-center w-[60%]">
         <div className="grid grid-cols-7 gap-1 mb-4 text-[13px] font-semibold items-center">
           <span className="text-red-500">S</span>
           <span>M</span>
@@ -85,10 +127,12 @@ export default function BtypeWeddingDay() {
             )
           )}
         </div>
-      </div>
+      </motion.div>
 
-      {/* 하단 구분선 */}
-      <div className="w-full max-w-[320px] border-t border-gray-200 mt-6" />
-    </div>
+      <motion.div
+        variants={fadeUp}
+        className="w-full max-w-[320px] border-t border-gray-200 mt-6"
+      />
+    </motion.div>
   );
 }

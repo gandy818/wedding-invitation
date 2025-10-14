@@ -19,8 +19,8 @@ const fadeUp: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 2.2, // 1.5초 → 2.2초로 느리게
-      ease: [0.25, 1, 0.3, 1], // 좀 더 천천히 감속되는 easing
+      duration: 2.2,
+      ease: [0.25, 1, 0.3, 1],
     },
   },
 };

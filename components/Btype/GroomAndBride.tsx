@@ -1,14 +1,46 @@
+"use client";
+
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 
 export default function BtypeGroomAndBride() {
+  const container: Variants = {
+    hidden: { opacity: 0, y: 32 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 3.2,
+        ease: [0.16, 1, 0.3, 1], // 부드러운 easeOut
+        staggerChildren: 0.06,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.9, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
-    <section className="bg-white py-[50px] px-6 text-center text-gray-800">
-      <div className="mb-10">
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.35 }} // 섹션의 35%가 보이면 실행, 한 번만
+      className="bg-white py-[50px] px-6 text-center text-gray-800"
+    >
+      <motion.div variants={fadeUp} className="mb-10">
         <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">
           GROOM & BRIDE
         </p>
         <h2 className="text-2xl font-semibold ">신랑 & 신부를 소개합니다</h2>
-      </div>
+      </motion.div>
 
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 xs:grid-cols-2">
         <div className="flex flex-col items-center">
@@ -48,6 +80,6 @@ export default function BtypeGroomAndBride() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 }
