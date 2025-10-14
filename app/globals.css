@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-xs: 360px;
+}
+
 body {
   /* font-family: Arial, Helvetica, sans-serif; */
 }
