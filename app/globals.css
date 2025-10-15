@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --breakpoint-xs: 360px;
+  --breakpoint-xxs: 360px;
+  --breakpoint-xs: 380px;
 }
 
 body {

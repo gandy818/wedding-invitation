@@ -18,15 +18,6 @@ export default function BtypeLocation() {
     },
   };
 
-  const fadeUp: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1.9, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
-
   return (
     <motion.div
       variants={container}
@@ -87,7 +78,7 @@ export default function BtypeLocation() {
 
         {/* 하단 바 */}
         <div className="flex items-center justify-between px-4 py-3  border-gray-200 bg-white text-sm">
-          <div className="flex items-center gap-2 text-gray-700 text-lg">
+          <div className="flex items-center gap-2 text-gray-700 text-md">
             <MapPin className="text-gray-500 w-4 h-4 " />
             서울 강서구 강서로 388
           </div>
@@ -95,7 +86,7 @@ export default function BtypeLocation() {
             href="https://map.kakao.com/link/to/서울 강서구 강서로 388"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-lg text-[#6ea682] font-medium hover:underline"
+            className="flex items-center gap-1 text-md text-[#6ea682] font-medium hover:underline"
           >
             카카오 길찾기
             <svg
