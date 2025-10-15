@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: "2025년 12월 27일 (토) 11:20 더베뉴지서울 1층 네이처홀",
     images: [
       {
-        url: "/assets/images/thumbnail2.jpeg",
+        url: "https://wedding-invitation-nygh.vercel.app/assets/images/thumbnail2.jpeg",
         alt: "관휘와 나영, 결혼합니다 썸네일",
       },
     ],
