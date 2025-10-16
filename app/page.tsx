@@ -7,10 +7,13 @@ import Infomation from "@/components/Infomation";
 import Account from "@/components/Account/Account";
 import Location from "@/components/Location";
 import MidImage from "@/components/MidImage";
+import IntroLoader from "@/components/IntroLoader";
 
 export default function Home() {
   return (
     <div className="text-center w-full max-w-[480px]">
+      {/* <IntroLoader /> */}
+
       <main>
         <Main />
         <Invitation />

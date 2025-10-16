@@ -44,11 +44,15 @@ export default function GallerySection() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: false, amount: 0.25 }}
       className="px-4 py-[50px] text-center text-gray-800"
     >
-      <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">GALLERY</p>
-      <h2 className="text-2xl font-semibold mb-6">우리의 소중한 순간</h2>
+      <motion.div variants={fadeUp}>
+        <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2 font-[EBGaramond]">
+          GALLERY
+        </p>
+        <h2 className="text-[18px] font-semibold mb-10">우리의 소중한 순간</h2>
+      </motion.div>
 
       <Gallery>
         <motion.div

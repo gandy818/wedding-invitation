@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useMotionValueEvent,
+  Variants,
+} from "framer-motion";
+import { Heart } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
@@ -30,18 +36,48 @@ export default function GroomAndBride() {
     else if (showBride && p <= BRIDE_EXIT) setShowBride(false);
   });
 
+  const container: Variants = {
+    hidden: { opacity: 0, y: 32 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 3.2,
+        ease: [0.16, 1, 0.3, 1], // 부드러운 easeOut
+        staggerChildren: 0.06,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.9, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
-    <section
+    <motion.section
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.35 }}
       ref={ref}
       className="relative  text-center text-gray-800 py-[50px]"
     >
       <div className=" h-[450px] overflow-hidden px-6">
-        <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">
-          GROOM & BRIDE
-        </p>
-        <h2 className="text-xl font-semibold mb-4">신랑 & 신부 소개</h2>
-        <div className="text-base leading-relaxed text-gray-700 mb-10">
-          <p>
+        <motion.div variants={fadeUp}>
+          <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2 font-[EBGaramond]">
+            GROOM & BRIDE
+          </p>
+          <h2 className="text-[18px] font-semibold mb-4">신랑 & 신부 소개</h2>
+        </motion.div>
+
+        <div className="text-[16px] leading-relaxed text-gray-700 mb-10">
+          <motion.p variants={fadeUp}>
             누구보다 멋있고 아름다
             <motion.span
               key={showGroom || showBride ? "future" : "past"} // key가 달라야 애니메이션 트리거됨
@@ -51,8 +87,8 @@ export default function GroomAndBride() {
             >
               {showGroom || showBride ? "울" : "웠던"}
             </motion.span>
-          </p>
-          <p>그날의 신랑신부를 소개합니다!</p>
+          </motion.p>
+          <motion.p variants={fadeUp}>그날의 신랑신부를 소개합니다!</motion.p>
         </div>
 
         <div className="mx-auto grid max-w-4xl grid-cols-2 relative  gap-2">
@@ -105,7 +141,9 @@ export default function GroomAndBride() {
               </div>
               <div className="mt-3 text-lg">
                 <span className="font-semibold">김태성</span>
-                <span className="mx-2 text-[#D86343]">❤️</span>
+                <span className="mx-2 text-[#D86343]">
+                  <Heart className=" w-4 h-4 inline text-[#ff957a] fill-[#ff957a]" />
+                </span>
                 <span className="font-semibold">유명옥</span>
               </div>
             </motion.div>
@@ -160,13 +198,15 @@ export default function GroomAndBride() {
               </div>
               <div className="mt-3 text-lg">
                 <span className="font-semibold">유영근</span>
-                <span className="mx-2 text-[#D86343]">❤️</span>
+                <span className="mx-2 text-[#D86343]">
+                  <Heart className=" w-4 h-4 inline text-[#ff957a] fill-[#ff957a]" />
+                </span>
                 <span className="font-semibold">박순덕</span>
               </div>
             </motion.div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

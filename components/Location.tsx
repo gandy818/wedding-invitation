@@ -23,14 +23,14 @@ export default function BtypeLocation() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.3 }}
       className=" bg-[#F5F9F5] flex flex-col items-center justify-center px-6 py-16 text-center text-gray-800"
     >
       <div className="mb-10">
-        <p className="text-[14px] tracking-[0.25em] text-[#b5cda4] mb-2">
+        <p className="text-[14px] tracking-[0.25em] text-[#b5cda4] mb-2 font-[EBGaramond]">
           LOCATION
         </p>
-        <h1 className="text-[20px] font-semibold">오시는 길</h1>
+        <h1 className="text-[18px] font-semibold">오시는 길</h1>
       </div>
 
       <div className="text-[16px] leading-relaxed mb-10">
@@ -43,18 +43,9 @@ export default function BtypeLocation() {
         </p>
       </div>
 
-      <div className="w-full max-w-md rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white">
+      <div className="w-full max-w-md  overflow-hidden shadow-sm bg-white">
         {/* 지도 */}
-        <div
-          style={{
-            font: "normal normal 400 12px/normal dotum, sans-serif",
-            width: "100%",
-            maxWidth: "640px",
-            color: "#333",
-            position: "relative",
-            margin: "0 auto",
-          }}
-        >
+        <div>
           <div>
             <a
               href="https://map.kakao.com/?urlX=464504.9999999995&urlY=1127990.0000000023&itemId=8700757&q=%EB%8D%94%EB%B2%A0%EB%89%B4%EC%A7%80%EC%84%9C%EC%9A%B8&srcid=8700757&map_type=TYPE_MAP&from=roughmap"
@@ -63,16 +54,10 @@ export default function BtypeLocation() {
             >
               <img
                 className="map"
-                src="http://t1.daumcdn.net/roughmap/imgmap/c20f6da94ba05c68f68943d75ed43d1ad99612f1115dfadf1eda0f5a9a3ae976"
+                src="http://t1.daumcdn.net/roughmap/imgmap/dbeb270bc776477d856f38c142602b1abbd576e1fc28332835faaf3a9b99c899"
                 width="100%"
                 height="358px"
                 alt="더베뉴지서울 지도"
-                style={{
-                  border: "1px solid #ccc",
-                  display: "block",
-                  width: "100%",
-                  height: "auto",
-                }}
               />
             </a>
           </div>
@@ -116,27 +101,27 @@ export default function BtypeLocation() {
               href="nmap://search?query=더베뉴지서울&appname=https://ourfirstletter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex text-[14px] items-center justify-center w-[31%] py-2 rounded-lg shadow-lg bg-white transition"
+              className="flex text-[14px] items-center  justify-center w-[31%] py-2 rounded-lg shadow-lg bg-white transition"
             >
               <img
                 src="/assets/icons/navermap.jpg"
                 alt="네이버지도"
                 className="w-5 h-5 mr-1"
               />
-              네이버지도
+              <span className="mt-1">네이버지도</span>
             </a>
             <a
               href="tmap://search?name=더베뉴지서울"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-[14px] justify-center w-[31%] py-2 rounded-lg shadow-lg bg-white transition"
+              className="flex items-center  text-[14px] justify-center w-[31%] py-2 rounded-lg shadow-lg bg-white transition"
             >
               <img
                 src="/assets/icons/tmap.png"
                 alt="티맵"
                 className="w-5 h-5 mr-1"
               />
-              티맵
+              <span className="mt-1">티맵</span>
             </a>
             <a
               href="http://place.map.kakao.com/8700757"
@@ -149,7 +134,7 @@ export default function BtypeLocation() {
                 alt="카카오맵"
                 className="w-5 h-5 mr-1"
               />
-              카카오맵
+              <span className="mt-1">카카오맵</span>
             </a>
           </div>
         </div>

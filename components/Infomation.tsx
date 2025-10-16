@@ -58,14 +58,14 @@ export default function BtypeInfomation() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.35 }} // 섹션의 35%가 보이면 실행, 한 번만
+      viewport={{ once: false, amount: 0.35 }}
       className="bg-white py-[50px] px-4 text-gray-800 h-[725px]"
     >
       <motion.div variants={fadeUp} className="text-center">
-        <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2">
+        <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2 font-[EBGaramond]">
           INFORMATION
         </p>
-        <h2 className="text-[20px] font-semibold">안내 말씀드립니다</h2>
+        <h2 className="text-[18px] font-semibold">안내 말씀드립니다</h2>
       </motion.div>
 
       <div className="mx-auto mt-10 max-w-4xl">
@@ -83,7 +83,7 @@ export default function BtypeInfomation() {
               id={`tab-${t.id}`}
               onClick={() => goTo(idx)}
               className={[
-                "h-12 text-center text-[18px] transition-colors cursor-pointer",
+                "h-12 text-center text-[16px] transition-colors cursor-pointer",
                 active === t.id
                   ? "text-[#6f8570] font-semibold"
                   : "text-gray-400",
@@ -124,7 +124,7 @@ export default function BtypeInfomation() {
                 className="h-[300px] w-full object-cover"
                 priority
               />
-              <ul className="mt-6 leading-8 text-left ml-5 text-[16px]">
+              <ul className="mt-6 leading-8 text-left ml-5 text-[14px]">
                 <li className="list-disc">
                   연회장은 지하 1층에 있습니다. 에스컬레이터를 이용하시면 더욱
                   편리하게 이동하실 수 있습니다.
@@ -147,7 +147,7 @@ export default function BtypeInfomation() {
                 className="h-[300px] w-full object-cover"
                 priority
               />
-              <ul className="mt-6 leading-8 text-left ml-5 text-[16px]">
+              <ul className="mt-6 leading-8 text-left ml-5 text-[14px]">
                 <li className="list-disc">
                   1층 로비 2게이트 앞에 국민은행과 하나은행 ATM이 마련되어
                   있습니다.
@@ -171,7 +171,7 @@ export default function BtypeInfomation() {
                 className="h-[300px] w-full object-cover"
                 priority
               />
-              <ul className="mt-6 leading-8 text-left ml-5 text-[16px]">
+              <ul className="mt-6 leading-8 text-left ml-5 text-[14px]">
                 <li className="list-disc">
                   밝은 옷도 어울리는 홀입니다. 부담 갖지 마시고 편안한 차림으로
                   참석해주세요.

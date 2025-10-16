@@ -5,6 +5,132 @@
   --breakpoint-xs: 380px;
 }
 
+/* === GothicA1 폰트 === */
+@font-face {
+  font-family: "GothicA1";
+  src: url("/assets/fonts/GothicA1/GothicA1-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GothicA1";
+  src: url("/assets/fonts/GothicA1/GothicA1-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GothicA1";
+  src: url("/assets/fonts/GothicA1/GothicA1-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GothicA1";
+  src: url("/assets/fonts/GothicA1/GothicA1-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GothicA1";
+  src: url("/assets/fonts/GothicA1/GothicA1-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GothicA1";
+  src: url("/assets/fonts/GothicA1/GothicA1-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GothicA1";
+  src: url("/assets/fonts/GothicA1/GothicA1-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GothicA1";
+  src: url("/assets/fonts/GothicA1/GothicA1-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GothicA1";
+  src: url("/assets/fonts/GothicA1/GothicA1-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* === EB Garamond 폰트 등록 === */
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/assets/fonts/EBGaramond/EBGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/assets/fonts/EBGaramond/EBGaramond-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/assets/fonts/EBGaramond/EBGaramond-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/assets/fonts/EBGaramond/EBGaramond-MediumItalic.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/assets/fonts/EBGaramond/EBGaramond-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/assets/fonts/EBGaramond/EBGaramond-SemiBoldItalic.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/assets/fonts/EBGaramond/EBGaramond-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/assets/fonts/EBGaramond/EBGaramond-BoldItalic.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/assets/fonts/EBGaramond/EBGaramond-ExtraBold.ttf")
+    format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EBGaramond";
+  src: url("/assets/fonts/EBGaramond/EBGaramond-ExtraBoldItalic.ttf")
+    format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* === 폰트 글로벌 적용 예시 === */
+html,
 body {
-  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: "GothicA1", sans-serif;
 }

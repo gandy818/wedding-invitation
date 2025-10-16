@@ -27,36 +27,48 @@ export default function WeddingDay() {
   };
 
   return (
-    <motion.section
-      variants={container}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.65 }}
-      className="bg-white py-[50px] flex flex-col items-center text-center text-gray-800"
-    >
-      <motion.div variants={fadeUp} className="mb-10">
-        <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">
+    <section className="bg-white py-[50px] flex flex-col items-center text-center text-gray-800">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.45 }}
+        className="mb-10"
+      >
+        <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2 font-[EBGaramond]">
           WEDDING DAY
         </p>
 
         {/* 날짜 및 장소 */}
         <div className="mb-6">
-          <p className="text-lg font-medium mb-1">
+          <p className="text-[16px] font-medium mb-2">
             2025.12.27. 토요일 오전 11:20
           </p>
-          <p className="text-base font-medium text-gray-700">
+          <p className="text-[14px] font-semibold ">
             더베뉴지서울 1층 네이처홀
           </p>
         </div>
       </motion.div>
 
       {/* 구분선 */}
-      <div className="w-full max-w-[320px] border-t border-gray-200 my-6" />
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.85 }}
+        className="w-full max-w-[320px] border-t border-gray-200 my-6"
+      />
 
       {/* 달력 */}
-      <motion.div variants={fadeUp} className="text-center w-[60%]">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.85 }}
+        className="text-center w-[60%]"
+      >
         <div className="grid grid-cols-7 gap-1 mb-4 text-[13px] font-semibold items-center">
-          <span className="text-red-500">S</span>
+          <span className="text-[#ab0000]">S</span>
           <span>M</span>
           <span>T</span>
           <span>W</span>
@@ -110,8 +122,12 @@ export default function WeddingDay() {
             ) : (
               <div
                 key={i}
-                className={`text-gray-800 text-[80%] ${
-                  i % 7 === 0 && day ? "text-red-500" : ""
+                className={` text-[80%] ${
+                  i % 7 === 0 && day
+                    ? "text-[#ab0000]"
+                    : day === "25"
+                    ? "text-[#ab0000]"
+                    : ""
                 }`}
               >
                 {day}
@@ -122,7 +138,13 @@ export default function WeddingDay() {
       </motion.div>
 
       {/* 하단 구분선 */}
-      <div className="w-full max-w-[320px] border-t border-gray-200 mt-6" />
-    </motion.section>
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.85 }}
+        className="w-full max-w-[320px] border-t border-gray-200 mt-6"
+      />
+    </section>
   );
 }
