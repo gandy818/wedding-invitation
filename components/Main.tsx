@@ -1,8 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { Great_Vibes } from "next/font/google";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const greatVibes = Great_Vibes({
   subsets: ["latin"],
@@ -12,10 +17,17 @@ const greatVibes = Great_Vibes({
 export default function Main() {
   const ref = useRef<HTMLDivElement>(null);
 
-  // 섹션이 화면에 보이는 동안의 스크롤 진행도 (0~1)
+  const [shrinkTriggered, setShrinkTriggered] = useState(false);
+
+  // 섹션 기준 스크롤 진행도 (0→1)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end end"],
+    offset: ["start start", "end start"],
+  });
+
+  // 임계치(10%)를 넘는 순간 한 번만 트리거
+  useMotionValueEvent(scrollYProgress, "change", (p) => {
+    if (!shrinkTriggered && p >= 0.4) setShrinkTriggered(true);
   });
 
   // 스크롤 비율에 따라 이미지 페이드 전환
@@ -23,9 +35,19 @@ export default function Main() {
   const opacityMain = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
 
   return (
-    <section ref={ref} className="relative h-[1400px] bg-[#F5F9F5] ">
-      {/* 실제로 고정되는 영역 */}
-      <div className="sticky top-0 h-[720px] overflow-hidden">
+    <motion.section
+      ref={ref}
+      className="relative bg-[#F5F9F5] "
+      initial={{ height: 1400 }}
+      animate={shrinkTriggered ? { height: 720 } : { height: 1400 }}
+      transition={{ height: { duration: 1, ease: "easeInOut" } }}
+    >
+      <motion.div
+        className="sticky top-0  overflow-hidden"
+        initial={{ height: 1400 }}
+        animate={shrinkTriggered ? { height: 620 } : { height: 720 }}
+        transition={{ height: { duration: 0.5, ease: "easeInOut" } }}
+      >
         {/* 이미지 레이어 */}
         <motion.img
           src="/assets/images/main-black.jpeg"
@@ -77,7 +99,7 @@ export default function Main() {
             laughter. Now we are ready to write the next chapter—together.
           </p>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

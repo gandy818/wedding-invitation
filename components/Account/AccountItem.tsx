@@ -1,8 +1,5 @@
 "use client";
 
-import Image from "next/image";
-// import kakaopay from "@/assets/icons/kakaopay.png";
-// import toss from "@/assets/icons/toss.png";
 import { ClipboardIcon } from "lucide-react";
 
 interface IAccountProps {
@@ -10,8 +7,6 @@ interface IAccountProps {
   relation: string;
   bank: string;
   account: string;
-  kakaopayAccount?: string;
-  tossAccount?: string;
 }
 
 export default function AccountItem({
@@ -19,8 +14,6 @@ export default function AccountItem({
   relation,
   bank,
   account,
-  kakaopayAccount,
-  tossAccount,
 }: IAccountProps) {
   const handleCopy = () => {
     navigator.clipboard.writeText(account).then(
@@ -49,30 +42,6 @@ export default function AccountItem({
         >
           <ClipboardIcon className="w-4 h-4 text-gray-400" />
         </button>
-      </div>
-
-      {/* 결제 링크 */}
-      <div className="flex gap-2 mt-2">
-        {kakaopayAccount && (
-          <a
-            href={kakaopayAccount}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center justify-center border border-gray-200 rounded-md py-1 px-3 hover:bg-gray-50 transition"
-          >
-            {/* <Image src={kakaopay} alt="kakaopay" width={50} height={20} /> */}
-          </a>
-        )}
-        {tossAccount && (
-          <a
-            href={tossAccount}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center justify-center border border-gray-200 rounded-md py-1 px-3 hover:bg-gray-50 transition"
-          >
-            {/* <Image src={toss} alt="toss" width={70} height={20} /> */}
-          </a>
-        )}
       </div>
     </div>
   );

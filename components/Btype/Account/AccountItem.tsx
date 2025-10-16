@@ -1,8 +1,5 @@
 "use client";
 
-import Image from "next/image";
-// import kakaopay from "@/assets/icons/kakaopay.png";
-// import toss from "@/assets/icons/toss.png";
 import { ClipboardIcon } from "lucide-react";
 
 interface IAccountProps {
@@ -10,8 +7,6 @@ interface IAccountProps {
   relation: string;
   bank: string;
   account: string;
-  kakaopayAccount?: string;
-  tossAccount?: string;
 }
 
 export default function BtypeAccountItem({
@@ -19,8 +14,6 @@ export default function BtypeAccountItem({
   relation,
   bank,
   account,
-  kakaopayAccount,
-  tossAccount,
 }: IAccountProps) {
   const handleCopy = () => {
     navigator.clipboard.writeText(account).then(

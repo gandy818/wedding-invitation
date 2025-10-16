@@ -14,7 +14,7 @@ type TabId = "buffet" | "atm" | "dress";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "buffet", label: "연회장" },
-  { id: "atm", label: "편의시설안내" },
+  { id: "atm", label: "편의시설" },
   { id: "dress", label: "복장안내" },
 ];
 
@@ -135,7 +135,7 @@ export default function BtypeInfomation() {
               </ul>
             </SwiperSlide>
 
-            {/* 편의시설안내 */}
+            {/* 편의시설 */}
             <SwiperSlide
               aria-labelledby="tab-atm"
               id="panel-atm"
@@ -143,7 +143,7 @@ export default function BtypeInfomation() {
             >
               <Image
                 src={atm}
-                alt="편의시설 안내 이미지"
+                alt="편의시설 이미지"
                 className="h-[300px] w-full object-cover"
                 priority
               />

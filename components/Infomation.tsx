@@ -1,30 +1,72 @@
 "use client";
 
-import { useState } from "react";
+import { motion, type Variants } from "framer-motion";
+import { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import hall from "@/public/assets/images/hall.jpeg";
+import atm from "@/public/assets/images/atm.png";
 import buffet from "@/public/assets/images/buffet.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
 
-type TabId = "buffet" | "flower" | "dress";
+type TabId = "buffet" | "atm" | "dress";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "buffet", label: "연회장" },
-  { id: "flower", label: "화환안내" },
+  { id: "atm", label: "편의시설" },
   { id: "dress", label: "복장안내" },
 ];
 
-export default function Infomation() {
-  const [active, setActive] = useState<TabId>("flower"); // 기본: 화환안내
-  const activeIndex = TABS.findIndex((t) => t.id === active);
+export default function BtypeInfomation() {
+  const [active, setActive] = useState<TabId>("buffet");
+  const activeIndex = useMemo(
+    () => TABS.findIndex((t) => t.id === active),
+    [active]
+  );
+  const swiperRef = useRef<SwiperType | null>(null);
+
+  const goTo = (idx: number) => {
+    swiperRef.current?.slideTo(idx);
+  };
+
+  const container: Variants = {
+    hidden: { opacity: 0, y: 32 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 3.2,
+        ease: [0.16, 1, 0.3, 1], // 부드러운 easeOut
+        staggerChildren: 0.06,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.9, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
 
   return (
-    <section className="bg-white py-[50px] px-4 text-gray-800">
-      <div className="text-center">
-        <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.35 }} // 섹션의 35%가 보이면 실행, 한 번만
+      className="bg-white py-[50px] px-4 text-gray-800 h-[725px]"
+    >
+      <motion.div variants={fadeUp} className="text-center">
+        <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2">
           INFORMATION
         </p>
-        <h2 className="text-2xl font-semibold">안내 말씀드립니다</h2>
-      </div>
+        <h2 className="text-[20px] font-semibold">안내 말씀드립니다</h2>
+      </motion.div>
 
       <div className="mx-auto mt-10 max-w-4xl">
         <div
@@ -32,18 +74,18 @@ export default function Infomation() {
           aria-label="안내 탭"
           className="relative grid grid-cols-3 items-center border-b border-gray-200"
         >
-          {TABS.map((t) => (
+          {TABS.map((t, idx) => (
             <button
               key={t.id}
               role="tab"
               aria-selected={active === t.id}
               aria-controls={`panel-${t.id}`}
               id={`tab-${t.id}`}
-              onClick={() => setActive(t.id)}
+              onClick={() => goTo(idx)}
               className={[
-                "h-12 text-center text-lg transition-colors",
+                "h-12 text-center text-[18px] transition-colors cursor-pointer",
                 active === t.id
-                  ? "text-[#B5CDA4] font-semibold"
+                  ? "text-[#6f8570] font-semibold"
                   : "text-gray-400",
               ].join(" ")}
             >
@@ -52,71 +94,93 @@ export default function Infomation() {
           ))}
 
           <span
-            className="pointer-events-none absolute bottom-[-1px] left-0 h-[3px] w-1/3 bg-[#94b07a] transition-transform duration-300"
+            className="pointer-events-none absolute bottom-[-1px] left-0 h-[3px] w-1/3 bg-[#6f8570] transition-transform duration-300"
             style={{ transform: `translateX(${activeIndex * 100}%)` }}
           />
         </div>
 
         {/* 패널 */}
         <div className="pt-6">
-          {/* 연회장 */}
-          <div
-            id="panel-hall"
-            role="tabpanel"
-            aria-labelledby="tab-hall"
-            hidden={active !== "buffet"}
+          <Swiper
+            onSwiper={(sw) => (swiperRef.current = sw)}
+            onSlideChange={(sw) => {
+              const newIdx = sw.activeIndex ?? 0;
+              const newTab = TABS[newIdx]?.id ?? "buffet";
+              setActive(newTab);
+            }}
+            initialSlide={activeIndex}
+            autoHeight
+            spaceBetween={0}
           >
-            <Image
-              src={buffet}
-              alt="연회장 안내 이미지"
-              className="h-[300px] object-cover"
-              priority
-            />
-            <p className="mt-6 leading-8 text-left">
-              연회장은 지하 1층에 있습니다. 음료와 주류가 무제한이니 마음껏
-              즐겨주세요.
-            </p>
-          </div>
+            {/* 연회장 */}
+            <SwiperSlide
+              aria-labelledby="tab-buffet"
+              id="panel-buffet"
+              role="tabpanel"
+            >
+              <Image
+                src={buffet}
+                alt="연회장 안내 이미지"
+                className="h-[300px] w-full object-cover"
+                priority
+              />
+              <ul className="mt-6 leading-8 text-left ml-5 text-[16px]">
+                <li className="list-disc">
+                  연회장은 지하 1층에 있습니다. 에스컬레이터를 이용하시면 더욱
+                  편리하게 이동하실 수 있습니다.
+                </li>
+                <li className="list-disc">
+                  음료와 주류가 무제한이니 마음껏 즐겨주세요.
+                </li>
+              </ul>
+            </SwiperSlide>
 
-          {/* 화환안내 */}
-          <div
-            id="panel-flower"
-            role="tabpanel"
-            aria-labelledby="tab-flower"
-            hidden={active !== "flower"}
-          >
-            <Image
-              src={buffet}
-              alt="화환 안내 이미지"
-              className="h-[300px] object-cover"
-              priority
-            />
-            <p className="mt-6 leading-8 text-left">
-              환경보호를 위해 축하화환은 받고 있지 않습니다. 축하해주시는 마음만
-              감사히 받겠습니다.
-            </p>
-          </div>
+            {/* 편의시설 */}
+            <SwiperSlide
+              aria-labelledby="tab-atm"
+              id="panel-atm"
+              role="tabpanel"
+            >
+              <Image
+                src={atm}
+                alt="편의시설 이미지"
+                className="h-[300px] w-full object-cover"
+                priority
+              />
+              <ul className="mt-6 leading-8 text-left ml-5 text-[16px]">
+                <li className="list-disc">
+                  1층 로비 2게이트 앞에 국민은행과 하나은행 ATM이 마련되어
+                  있습니다.
+                </li>
+                <li className="list-disc">
+                  동시 주차 1,200대의 주차공간이 있으니 마음 편히 오셔서 축하해
+                  주세요. 무료주차는 2시간 적용됩니다.
+                </li>
+              </ul>
+            </SwiperSlide>
 
-          {/* 복장안내 */}
-          <div
-            id="panel-dress"
-            role="tabpanel"
-            aria-labelledby="tab-dress"
-            hidden={active !== "dress"}
-          >
-            <Image
-              src={hall}
-              alt="복장 안내 이미지"
-              className="h-[300px] object-cover"
-              priority
-            />
-            <p className="mt-6 leading-8 text-left">
-              밝은 옷도 어울리는 홀입니다. 부담 갖지 마시고 편안한 차림으로
-              참석해주세요.
-            </p>
-          </div>
+            {/* 복장안내 */}
+            <SwiperSlide
+              aria-labelledby="tab-dress"
+              id="panel-dress"
+              role="tabpanel"
+            >
+              <Image
+                src={hall}
+                alt="복장 안내 이미지"
+                className="h-[300px] w-full object-cover"
+                priority
+              />
+              <ul className="mt-6 leading-8 text-left ml-5 text-[16px]">
+                <li className="list-disc">
+                  밝은 옷도 어울리는 홀입니다. 부담 갖지 마시고 편안한 차림으로
+                  참석해주세요.
+                </li>
+              </ul>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 }

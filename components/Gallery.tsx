@@ -4,6 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import { Gallery, Item } from "react-photoswipe-gallery";
 import "photoswipe/style.css";
 import images from "@/lib/gallery-images";
+import { motion, type Variants } from "framer-motion";
 
 type GalleryImg = {
   alt: string;
@@ -15,13 +16,45 @@ type GalleryImg = {
 export default function GallerySection() {
   const list = images as GalleryImg[];
 
+  const container: Variants = {
+    hidden: { opacity: 0, y: 32 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 3.2,
+        ease: [0.16, 1, 0.3, 1], // 부드러운 easeOut
+        staggerChildren: 0.06,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.9, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
-    <section className="px-4 py-[50px] text-center text-gray-800">
+    <motion.section
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.35 }}
+      className="px-4 py-[50px] text-center text-gray-800"
+    >
       <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">GALLERY</p>
       <h2 className="text-2xl font-semibold mb-6">우리의 소중한 순간</h2>
 
       <Gallery>
-        <div className="mx-auto grid max-w-5xl grid-cols-3 gap-4 sm:grid-cols-3">
+        <motion.div
+          variants={fadeUp}
+          className="mx-auto grid max-w-5xl grid-cols-3 gap-4 sm:grid-cols-3"
+        >
           {list.map(({ src, alt, width, height }, idx) => {
             const url = src.src;
             const w = width ?? src.width;
@@ -55,8 +88,8 @@ export default function GallerySection() {
               </Item>
             );
           })}
-        </div>
+        </motion.div>
       </Gallery>
-    </section>
+    </motion.section>
   );
 }

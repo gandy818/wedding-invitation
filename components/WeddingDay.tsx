@@ -1,26 +1,60 @@
-export default function WeddingDay() {
-  return (
-    <div className="bg-white py-[50px] flex flex-col items-center text-center text-gray-800">
-      {/* 상단 제목 */}
-      <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">
-        WEDDING DAY
-      </p>
+"use client";
 
-      {/* 날짜 및 장소 */}
-      <div className="mb-6">
-        <p className="text-lg font-medium mb-1">
-          2025.12.27. 토요일 오전 11:20
+import { motion, type Variants } from "framer-motion";
+
+export default function WeddingDay() {
+  const container: Variants = {
+    hidden: { opacity: 0, y: 32 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 3.2,
+        ease: [0.16, 1, 0.3, 1], // 부드러운 easeOut
+        staggerChildren: 0.06,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.9, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
+  return (
+    <motion.section
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.65 }}
+      className="bg-white py-[50px] flex flex-col items-center text-center text-gray-800"
+    >
+      <motion.div variants={fadeUp} className="mb-10">
+        <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">
+          WEDDING DAY
         </p>
-        <p className="text-base font-medium text-gray-700">
-          더베뉴지서울 1층 네이처홀
-        </p>
-      </div>
+
+        {/* 날짜 및 장소 */}
+        <div className="mb-6">
+          <p className="text-lg font-medium mb-1">
+            2025.12.27. 토요일 오전 11:20
+          </p>
+          <p className="text-base font-medium text-gray-700">
+            더베뉴지서울 1층 네이처홀
+          </p>
+        </div>
+      </motion.div>
 
       {/* 구분선 */}
       <div className="w-full max-w-[320px] border-t border-gray-200 my-6" />
 
       {/* 달력 */}
-      <div className="text-center w-[60%]">
+      <motion.div variants={fadeUp} className="text-center w-[60%]">
         <div className="grid grid-cols-7 gap-1 mb-4 text-[13px] font-semibold items-center">
           <span className="text-red-500">S</span>
           <span>M</span>
@@ -85,10 +119,10 @@ export default function WeddingDay() {
             )
           )}
         </div>
-      </div>
+      </motion.div>
 
       {/* 하단 구분선 */}
       <div className="w-full max-w-[320px] border-t border-gray-200 mt-6" />
-    </div>
+    </motion.section>
   );
 }
