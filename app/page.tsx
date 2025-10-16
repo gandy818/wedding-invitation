@@ -6,6 +6,7 @@ import Gallery from "@/components/Gallery";
 import Infomation from "@/components/Infomation";
 import Account from "@/components/Account/Account";
 import Location from "@/components/Location";
+import MidImage from "@/components/MidImage";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Invitation />
         <WeddingDay />
         <GroomAndBride />
+        {/* <MidImage /> */}
         <Gallery />
         <Infomation />
         <Account />

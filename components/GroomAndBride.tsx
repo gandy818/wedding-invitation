@@ -8,34 +8,54 @@ export default function GroomAndBride() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ["start 70%", "end start"],
   });
 
-  // ✅ 특정 스크롤 지점에서 상태 전환
+  // 히스테리시스 임계치 (내려갈 때/올라갈 때 분리)
+  const GROOM_ENTER = 0.3; // 이 값 이상 내려가면 신랑(자녀) ON
+  const GROOM_EXIT = 0.24; // 이 값 미만 올라가면 신랑(자녀) OFF → 부모님 ON
+  const BRIDE_ENTER = 0.4;
+  const BRIDE_EXIT = 0.34;
+
   const [showGroom, setShowGroom] = useState(false);
   const [showBride, setShowBride] = useState(false);
 
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (v > 0.15 && !showGroom) setShowGroom(true); // 신랑 전환 트리거
-    if (v > 0.25 && !showBride) setShowBride(true); // 신부 전환 트리거
+  useMotionValueEvent(scrollYProgress, "change", (p) => {
+    // 신랑 토글
+    if (!showGroom && p >= GROOM_ENTER) setShowGroom(true);
+    else if (showGroom && p <= GROOM_EXIT) setShowGroom(false);
+
+    // 신부 토글
+    if (!showBride && p >= BRIDE_ENTER) setShowBride(true);
+    else if (showBride && p <= BRIDE_EXIT) setShowBride(false);
   });
 
   return (
     <section
       ref={ref}
-      className="relative h-[170vh] bg-white text-center text-gray-800 py-[50px]"
+      className="relative  text-center text-gray-800 py-[50px]"
     >
-      {/* ✅ 고정 콘텐츠 영역 */}
-      <div className="sticky top-[35px] h-[110vh] overflow-hidden px-6">
+      <div className=" h-[450px] overflow-hidden px-6">
         <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">
           GROOM & BRIDE
         </p>
         <h2 className="text-xl font-semibold mb-4">신랑 & 신부 소개</h2>
         <div className="text-base leading-relaxed text-gray-700 mb-10">
-          <p>그날의 신랑신부를 소개합니다</p>
+          <p>
+            누구보다 멋있고 아름다
+            <motion.span
+              key={showGroom || showBride ? "future" : "past"} // key가 달라야 애니메이션 트리거됨
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              {showGroom || showBride ? "울" : "웠던"}
+            </motion.span>
+          </p>
+          <p>그날의 신랑신부를 소개합니다!</p>
         </div>
 
-        <div className="mx-auto grid max-w-4xl grid-cols-1 relative min-h-[83vh]">
+        <div className="mx-auto grid max-w-4xl grid-cols-2 relative  gap-2">
           {/* === 신랑 === */}
           <div className="relative">
             <motion.div
@@ -43,7 +63,7 @@ export default function GroomAndBride() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="absolute left-0 top-0 w-full  flex flex-col items-center"
             >
-              <div className="relative aspect-[3/2] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
+              <div className="relative aspect-[1/1] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
                 <Image
                   src="/assets/images/groom.jpeg"
                   alt="groom"
@@ -52,8 +72,6 @@ export default function GroomAndBride() {
                 />
               </div>
               <div className="mt-4 text-sm">
-                {/* <span className="text-[#B5CDA4] font-medium">신랑</span>
-                <span className="mx-1 text-gray-400">|</span> */}
                 <span className="text-gray-700">김태성 · 유명옥의 아들</span>
               </div>
               <div className="mt-4">
@@ -72,7 +90,7 @@ export default function GroomAndBride() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="absolute left-0 top-0 w-full  flex flex-col items-center"
             >
-              <div className="relative aspect-[3/2] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
+              <div className="relative aspect-[1/1] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
                 <Image
                   src="/assets/images/groomParents.jpeg"
                   alt="groom parents"
@@ -100,7 +118,7 @@ export default function GroomAndBride() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="absolute right-0 top-0 w-full  flex flex-col items-center"
             >
-              <div className="relative aspect-[3/2] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
+              <div className="relative aspect-[1/1] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
                 <Image
                   src="/assets/images/bride.jpeg"
                   alt="bride"
@@ -109,8 +127,6 @@ export default function GroomAndBride() {
                 />
               </div>
               <div className="mt-4 text-sm">
-                {/* <span className="text-[#D86343] font-medium">신부</span> */}
-                {/* <span className="mx-1 text-gray-400">|</span> */}
                 <span className="text-gray-700">유영근 · 박순덕의 딸</span>
               </div>
               <div className="mt-4">
@@ -129,7 +145,7 @@ export default function GroomAndBride() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="absolute right-0 top-0 w-full  flex flex-col items-center"
             >
-              <div className="relative aspect-[3/2] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
+              <div className="relative aspect-[1/1] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
                 <Image
                   src="/assets/images/brideParents.jpeg"
                   alt="bride parents"

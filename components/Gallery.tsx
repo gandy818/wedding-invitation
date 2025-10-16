@@ -44,7 +44,7 @@ export default function GallerySection() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.35 }}
+      viewport={{ once: true, amount: 0.25 }}
       className="px-4 py-[50px] text-center text-gray-800"
     >
       <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">GALLERY</p>
