@@ -45,8 +45,8 @@ export default function GroomAndBride() {
             누구보다 멋있고 아름다
             <motion.span
               key={showGroom || showBride ? "future" : "past"} // key가 달라야 애니메이션 트리거됨
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
               {showGroom || showBride ? "울" : "웠던"}
