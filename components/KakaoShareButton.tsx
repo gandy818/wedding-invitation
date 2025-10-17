@@ -52,6 +52,7 @@ export default function KakaoShareButton({
       console.error(e);
       alert("카카오 공유 중 오류가 발생했습니다.");
     }
+    console.log(templateId, templateArgs);
   }, [templateId, templateArgs]);
 
   return (
