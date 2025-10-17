@@ -7,11 +7,10 @@ import { Heart } from "lucide-react";
 export default function IntroLoader() {
   const [show, setShow] = useState(true);
 
-  // 2초 후 오버레이 자동 종료 + 스크롤 잠금 잠깐 적용
+  // 4초 후 오버레이 자동 종료
   useEffect(() => {
     const prevOverflow = document.body.style.overflow;
-    // document.body.style.overflow = "hidden";
-    const t = setTimeout(() => setShow(false), 4000);
+    const t = setTimeout(() => setShow(false), 3500);
     return () => {
       clearTimeout(t);
       document.body.style.overflow = prevOverflow;

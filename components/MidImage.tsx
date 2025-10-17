@@ -1,8 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+} from "framer-motion";
 import Image from "next/image";
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 
 export default function MidImage() {
   const ref = useRef<HTMLDivElement>(null);
@@ -11,22 +16,24 @@ export default function MidImage() {
     offset: ["start start", "end start"],
   });
 
-  // 스크롤에 따른 오버레이 텍스트 페이드/이동
-  // (구간은 취향에 맞게 조정: 0.08~0.22 사이에서 서서히 나타남)
   const titleOpacity = useTransform(scrollYProgress, [0.08, 0.22], [0, 1]);
   const titleY = useTransform(scrollYProgress, [0.0, 0.22], [24, 0]);
-
   const subOpacity = useTransform(scrollYProgress, [0.12, 0.28], [0, 1]);
   const subY = useTransform(scrollYProgress, [0.04, 0.28], [18, 0]);
 
-  const TOTAL = 20;
+  const TOTAL = 20; // 0..19 권장
   const SPEED = 2.0;
 
   const [index, setIndex] = useState(0);
-  // NOTE: mount 애니메이션 제거하고 스크롤 기반만 사용
-  scrollYProgress.on("change", (p) => {
-    const next = Math.min(TOTAL, Math.round(p * SPEED * TOTAL));
-    if (next !== index) setIndex(next);
+
+  // ✔ 스크롤 → index 업데이트를 rAF로 스로틀
+  useMotionValueEvent(scrollYProgress, "change", (p) => {
+    // rAF로 묶어서 레이아웃 스로틀
+    requestAnimationFrame(() => {
+      const next = Math.min(TOTAL - 1, Math.round(p * SPEED * TOTAL));
+      // 동일 값이면 setState 회피 (불필요 리렌더 방지)
+      setIndex((prev) => (prev !== next ? next : prev));
+    });
   });
 
   const src = useMemo(() => {
@@ -37,25 +44,25 @@ export default function MidImage() {
   return (
     <section ref={ref} className="relative h-[300vh] bg-white">
       <div className="sticky top-10 h-screen w-full overflow-hidden">
-        <motion.div className="absolute inset-0">
+        {/* ✔ GPU 합성 레이어 승격 */}
+        <motion.div
+          className="absolute inset-0 will-change-transform"
+          style={{ transform: "translateZ(0)" }}
+        >
           <Image
             src={src}
             alt="scroll sequence"
             fill
-            className="object-cover"
+            className="object-cover [backface-visibility:hidden] [transform:translateZ(0)]"
             sizes="100vw"
             priority
           />
 
-          {/* 상단/하단 페이드 */}
-          <div className="pointer-events-none absolute top-0 left-0 w-full h-[25vh] bg-gradient-to-t from-transparent to-white" />
-          <div className="pointer-events-none absolute bottom-0 left-0 w-full h-[28vh] bg-gradient-to-b from-transparent to-white" />
+          {/* 상/하 그라데이션은 독립 페인트 영역으로 분리해 깜빡임 완화 */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[25vh] bg-gradient-to-t from-transparent to-white will-change-contents" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[28vh] bg-gradient-to-b from-transparent to-white will-change-contents" />
 
-          {/* 오버레이 텍스트 (스크롤 시 서서히 등장) */}
-          <div
-            className="absolute inset-0 flex flex-col items-center 
-          top-15 text-center"
-          >
+          <div className="absolute inset-0 flex flex-col items-center text-center">
             <motion.h2
               style={{
                 opacity: titleOpacity,
@@ -66,7 +73,6 @@ export default function MidImage() {
             >
               Our love story
             </motion.h2>
-
             <motion.p
               style={{
                 opacity: subOpacity,
