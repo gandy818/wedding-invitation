@@ -136,7 +136,7 @@ export default function GallerySection() {
         {hasMore ? (
           <button
             onClick={() => setShowCount((c) => Math.min(c + STEP, list.length))}
-            className="px-6 py-3 text-[16px] font-medium text-[#809e84] transition cursor-pointer focus:outline-0"
+            className="px-6 py-3 text-[16px]  font-medium text-[#809e84] transition cursor-pointer focus:outline-0"
           >
             사진 더보기
             <Image
@@ -144,7 +144,7 @@ export default function GallerySection() {
               alt="화살표"
               width={70}
               height={70}
-              className="mt-2 ml-2 inline-block"
+              className="mt-2 ml-2"
             />
           </button>
         ) : null}

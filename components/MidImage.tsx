@@ -62,7 +62,7 @@ export default function MidImage() {
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[25vh] bg-gradient-to-t from-transparent to-white will-change-contents" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[28vh] bg-gradient-to-b from-transparent to-white will-change-contents" />
 
-          <div className="absolute inset-0 flex flex-col items-center text-center">
+          {/* <div className="absolute inset-0 flex flex-col items-center text-center">
             <motion.h2
               style={{
                 opacity: titleOpacity,
@@ -83,7 +83,7 @@ export default function MidImage() {
             >
               OIN US IN CELEBRATING OUR WEDDING
             </motion.p>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>
