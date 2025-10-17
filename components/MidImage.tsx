@@ -37,9 +37,9 @@ export default function MidImageCanvas() {
   });
 
   // 텍스트 오버레이 애니메이션(원 코드 유지)
-  const titleOpacity = useTransform(scrollYProgress, [0.08, 0.22], [0, 1]);
+  const titleOpacity = useTransform(scrollYProgress, [0.05, 0.15], [0, 1]);
   const titleY = useTransform(scrollYProgress, [0.0, 0.22], [24, 0]);
-  const subOpacity = useTransform(scrollYProgress, [0.12, 0.28], [0, 1]);
+  const subOpacity = useTransform(scrollYProgress, [0.07, 0.2], [0, 0.7]);
   const subY = useTransform(scrollYProgress, [0.04, 0.28], [18, 0]);
 
   // 프레임 소스 경로
@@ -190,7 +190,7 @@ export default function MidImageCanvas() {
               y: titleY,
               willChange: "opacity, transform",
             }}
-            className={`text-[52px]  text-[#d27096] italic tracking-wide font-medium ${greatVibes.className}`}
+            className={`text-[52px] text-[#d27096] italic tracking-wide font-medium ${greatVibes.className}`}
           >
             Waltz of Love
           </motion.h2>
@@ -200,7 +200,7 @@ export default function MidImageCanvas() {
               y: subY,
               willChange: "opacity, transform",
             }}
-            className="mt-4 text-[12px] text-[#d27096] "
+            className="mt-4 text-[12px] text-[#d27096]"
           >
             천천히 내려보세요 신랑 신부가 춤을 춰요
           </motion.p>

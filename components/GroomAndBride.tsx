@@ -71,9 +71,12 @@ export default function GroomAndBride() {
       <div className=" h-[450px] overflow-hidden px-6">
         <motion.div variants={fadeUp}>
           <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2 font-[EBGaramond]">
-            GROOM & BRIDE
+            {showGroom || showBride ? "GROOM & BRIDE" : "OUR PARENTS"}
           </p>
-          <h2 className="text-[18px] font-semibold mb-4">신랑 & 신부 소개</h2>
+          <h2 className="text-[18px] font-semibold mb-4">
+            {showGroom || showBride ? "신랑 & 신부 " : "부모님 "}
+            소개
+          </h2>
         </motion.div>
 
         <div className="text-[16px] leading-relaxed text-gray-700 mb-10">
