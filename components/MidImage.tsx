@@ -23,7 +23,7 @@ export default function MidImageCanvas() {
   // 시퀀스 설정
   const TOTAL = 20; // 프레임 수
   const START_NO = 1641; // 시작 번호 (파일명 끝 숫자)
-  const SPEED = 2.0; // 스크롤 대비 프레임 민감도
+  const SPEED = 3.0; // 스크롤 대비 프레임 민감도
 
   // 프레임 버퍼 & 상태 (ref로 관리해 리렌더 방지)
   const framesRef = useRef<HTMLImageElement[]>([]);
@@ -167,7 +167,7 @@ export default function MidImageCanvas() {
   }, []);
 
   // sticky 섹션 높이
-  const sectionStyle = useMemo(() => "relative h-[300vh] bg-white", []);
+  const sectionStyle = useMemo(() => "relative h-[1500px] bg-white", []);
 
   return (
     <section ref={sectionRef} className={sectionStyle}>
@@ -184,14 +184,14 @@ export default function MidImageCanvas() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[28vh] bg-gradient-to-b from-transparent to-white" />
 
         {/* 오버레이 텍스트 (원 코드 유지) */}
-        <div className="absolute inset-0 flex flex-col items-center text-center">
+        <div className="absolute inset-0 flex flex-col items-center top-15 text-center">
           <motion.h2
             style={{
               opacity: titleOpacity,
               y: titleY,
               willChange: "opacity, transform",
             }}
-            className="text-[42px] font-[EBGaramond] text-[#d27096] italic tracking-wide"
+            className="text-[45px] font-[EBGaramond] text-[#d27096] italic tracking-wide"
           >
             Our love story
           </motion.h2>
@@ -201,9 +201,9 @@ export default function MidImageCanvas() {
               y: subY,
               willChange: "opacity, transform",
             }}
-            className="mt-4 text-[14px] text-[#d27096] font-[EBGaramond]"
+            className="mt-4 text-[12px] text-[#d27096] font-[EBGaramond]"
           >
-            OIN US IN CELEBRATING OUR WEDDING
+            JOIN US IN CELEBRATING OUR WEDDING
           </motion.p>
         </div>
       </div>
