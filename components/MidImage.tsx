@@ -7,15 +7,14 @@ import {
   useTransform,
 } from "framer-motion";
 import { useEffect, useMemo, useRef } from "react";
+import { Great_Vibes } from "next/font/google";
 
-/**
- * 캔버스 시퀀스 스크롤 컴포넌트
- * - 프레임들을 선/근접 프리로드하여 디코딩 대기 최소화
- * - scrollYProgress → index를 rAF로 그리기(리렌더 없음)
- * - DPR 반영해 선명도 유지, 리사이즈 대응
- *
- * 프레임 파일명 규칙: /assets/images/waltz/cropped/YOU01641.JPG ~ YOU01660.JPG (총 20장)
- */
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
 export default function MidImageCanvas() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -180,18 +179,18 @@ export default function MidImageCanvas() {
         />
 
         {/* 상/하 그라데이션 마스크 */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[25vh] bg-gradient-to-t from-transparent to-white" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[28vh] bg-gradient-to-b from-transparent to-white" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[180px] bg-gradient-to-t from-transparent to-white" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[180px] bg-gradient-to-b from-transparent to-white" />
 
         {/* 오버레이 텍스트 (원 코드 유지) */}
-        <div className="absolute inset-0 flex flex-col items-center top-15 text-center">
+        <div className="absolute inset-0 flex flex-col items-center top-10 text-center">
           <motion.h2
             style={{
               opacity: titleOpacity,
               y: titleY,
               willChange: "opacity, transform",
             }}
-            className="text-[45px] font-[EBGaramond] text-[#d27096] italic tracking-wide"
+            className={`text-[52px]  text-[#d27096] italic tracking-wide font-medium ${greatVibes.className}`}
           >
             Our love story
           </motion.h2>
@@ -201,7 +200,7 @@ export default function MidImageCanvas() {
               y: subY,
               willChange: "opacity, transform",
             }}
-            className="mt-4 text-[12px] text-[#d27096] font-[EBGaramond]"
+            className="mt-4 text-[12px] text-[#d27096] "
           >
             JOIN US IN CELEBRATING OUR WEDDING
           </motion.p>
