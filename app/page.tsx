@@ -12,7 +12,7 @@ import IntroLoader from "@/components/IntroLoader";
 export default function Home() {
   return (
     <div className="text-center w-full max-w-[480px]">
-      {/* <IntroLoader /> */}
+      <IntroLoader />
 
       <main>
         <Main />
