@@ -20,7 +20,7 @@ export const viewport = {
 export default function Home() {
   return (
     <div className="text-center w-full max-w-[480px]">
-      <IntroLoader />
+      {/* <IntroLoader /> */}
 
       <main>
         <Main />
@@ -34,16 +34,7 @@ export default function Home() {
         <Location />
 
         <div className="my-10 flex justify-center">
-          <KakaoShareButton
-            templateId={1324897} // ← Kakao Developers 템플릿 ID
-            templateArgs={{
-              groom: "김관휘",
-              bride: "유나영",
-              date: "2025.12.27",
-              place: "더베뉴지서울 1층 네이처홀",
-              linkUrl: "https://wedding-invitation-nygh.vercel.app/",
-            }}
-          />
+          <KakaoShareButton />
         </div>
       </main>
     </div>

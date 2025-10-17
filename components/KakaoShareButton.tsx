@@ -1,21 +1,13 @@
 "use client";
 import { useEffect, useCallback } from "react";
 
-interface KakaoShareButtonProps {
-  templateId: number; // Kakao 템플릿 ID
-  templateArgs?: Record<string, string>; // 템플릿 변수 (선택)
-}
-
 declare global {
   interface Window {
     Kakao: any;
   }
 }
 
-export default function KakaoShareButton({
-  templateId,
-  templateArgs = {},
-}: KakaoShareButtonProps) {
+export default function KakaoShareButton() {
   // ✅ 카카오 SDK 로드 및 초기화
   useEffect(() => {
     // 이미 로드된 경우 방지
@@ -45,15 +37,20 @@ export default function KakaoShareButton({
 
     try {
       window.Kakao.Link.sendCustom({
-        templateId,
-        templateArgs,
+        templateId: 1324897,
+        // templateArgs: {
+        //   groom: "김관휘",
+        //   bride: "유나영",
+        //   date: "2025.12.27",
+        //   place: "더베뉴지서울 1층 네이처홀",
+        //   linkUrl: "https://wedding-invitation-nygh.vercel.app/",
+        // },
       });
     } catch (e) {
       console.error(e);
       alert("카카오 공유 중 오류가 발생했습니다.");
     }
-    console.log(templateId, templateArgs);
-  }, [templateId, templateArgs]);
+  }, []);
 
   return (
     <button
