@@ -15,6 +15,7 @@ export default function GallerySection() {
   const [showCount, setShowCount] = useState(INITIAL);
 
   const shown = useMemo(() => list.slice(0, showCount), [list, showCount]);
+  const hiddenList = useMemo(() => list.slice(showCount), [list, showCount]);
   const hasMore = showCount < list.length;
 
   const container: Variants = {
@@ -24,7 +25,7 @@ export default function GallerySection() {
       y: 0,
       transition: {
         duration: 3.2,
-        ease: [0.16, 1, 0.3, 1], // 부드러운 easeOut
+        ease: [0.16, 1, 0.3, 1],
         staggerChildren: 0.06,
         delayChildren: 0.05,
       },
@@ -38,6 +39,16 @@ export default function GallerySection() {
       y: 0,
       transition: { duration: 1.9, ease: [0.16, 1, 0.3, 1] },
     },
+  };
+
+  // src/width/height 안전 추출 유틸
+  const pick = (src: string | StaticImageData, w?: number, h?: number) => {
+    const url = typeof src === "string" ? src : src.src;
+    const width =
+      w ?? (typeof src !== "string" ? src.width : undefined) ?? 2048;
+    const height =
+      h ?? (typeof src !== "string" ? src.height : undefined) ?? 1365;
+    return { url, width, height };
   };
 
   return (
@@ -56,19 +67,24 @@ export default function GallerySection() {
       </motion.div>
 
       <Gallery>
+        {/* 보이는 썸네일들 */}
         <motion.div
           variants={fadeUp}
           className="mx-auto grid max-w-5xl grid-cols-3 gap-4 sm:grid-cols-3"
         >
           {shown.map(({ src, alt, width, height }, idx) => {
-            const url = typeof src === "string" ? src : src;
+            const {
+              url,
+              width: w,
+              height: h,
+            } = pick(src as any, width, height);
             return (
               <Item
-                key={url}
+                key={`thumb-${url}`}
                 original={url}
                 thumbnail={url}
-                width={width}
-                height={height}
+                width={w}
+                height={h}
               >
                 {({ ref, open }) => (
                   <button
@@ -91,13 +107,36 @@ export default function GallerySection() {
             );
           })}
         </motion.div>
+
+        {/* 숨겨서 마운트만 하는 나머지 이미지들 (라이트박스 네비게이션 포함용) */}
+        {hiddenList.map(({ src, alt, width, height }) => {
+          const { url, width: w, height: h } = pick(src as any, width, height);
+          return (
+            <Item
+              key={`hidden-${url}`}
+              original={url}
+              thumbnail={url}
+              width={w}
+              height={h}
+            >
+              {({ ref }) => (
+                <span
+                  ref={ref as any}
+                  className="hidden"
+                  aria-hidden
+                  data-alt={alt}
+                />
+              )}
+            </Item>
+          );
+        })}
       </Gallery>
 
       <motion.div variants={fadeUp} className="mt-8">
         {hasMore ? (
           <button
             onClick={() => setShowCount((c) => Math.min(c + STEP, list.length))}
-            className=" px-6 py-3 text-[16px] font-medium  text-[#809e84]  transition cursor-pointer focus:outline-0"
+            className="px-6 py-3 text-[16px] font-medium text-[#809e84] transition cursor-pointer focus:outline-0"
           >
             사진 더보기
             <Image
@@ -105,7 +144,7 @@ export default function GallerySection() {
               alt="화살표"
               width={70}
               height={70}
-              className="mt-2 ml-2"
+              className="mt-2 ml-2 inline-block"
             />
           </button>
         ) : null}

@@ -37,7 +37,7 @@ export default function GallerySection() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }} // 섹션의 35%가 보이면 실행, 한 번만
+      viewport={{ once: true, amount: 0.25 }}
       className="px-4 py-[50px] text-center text-gray-800"
     >
       <motion.div variants={fadeUp} className="mb-10">

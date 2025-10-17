@@ -11,7 +11,7 @@ export default function IntroLoader() {
   useEffect(() => {
     const prevOverflow = document.body.style.overflow;
     // document.body.style.overflow = "hidden";
-    const t = setTimeout(() => setShow(false), 2500);
+    const t = setTimeout(() => setShow(false), 4000);
     return () => {
       clearTimeout(t);
       document.body.style.overflow = prevOverflow;
