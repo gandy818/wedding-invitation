@@ -32,7 +32,7 @@ export default function WeddingDay() {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.45 }}
+        viewport={{ once: true, amount: 0.45 }}
         className="mb-10"
       >
         <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2 font-[EBGaramond]">
@@ -55,7 +55,7 @@ export default function WeddingDay() {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.85 }}
+        viewport={{ once: true, amount: 0.85 }}
         className="w-full max-w-[320px] border-t border-gray-200 my-6"
       />
 
@@ -64,7 +64,7 @@ export default function WeddingDay() {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.85 }}
+        viewport={{ once: true, amount: 0.85 }}
         className="text-center w-[60%]"
       >
         <div className="grid grid-cols-7 gap-1 mb-4 text-[13px] font-semibold items-center">
@@ -142,7 +142,7 @@ export default function WeddingDay() {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.85 }}
+        viewport={{ once: true, amount: 0.85 }}
         className="w-full max-w-[320px] border-t border-gray-200 mt-6"
       />
     </section>

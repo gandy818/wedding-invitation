@@ -7,7 +7,7 @@ import { Heart } from "lucide-react";
 export default function IntroLoader() {
   const [show, setShow] = useState(true);
 
-  // 4초 후 오버레이 자동 종료
+  // 3.5초 후 오버레이 자동 종료
   useEffect(() => {
     const prevOverflow = document.body.style.overflow;
     const t = setTimeout(() => setShow(false), 3500);
@@ -35,12 +35,12 @@ export default function IntroLoader() {
             animate="show"
             variants={{
               hidden: { transition: { staggerChildren: 0.0 } },
-              show: { transition: { staggerChildren: 0.65 } }, // 전체 2초 안에 3단계
+              show: { transition: { staggerChildren: 1.0 } }, // 전체 3초 안에 3단계
             }}
           >
             <Line>
               김관휘
-              <span className="mx-4 text-sm">그리고</span>
+              <span className="mx-4 text-[14px]">그리고</span>
               유나영
             </Line>
             <Line>저희 결혼합니다</Line>
@@ -57,7 +57,7 @@ export default function IntroLoader() {
 function Line({ children }: { children: React.ReactNode }) {
   return (
     <motion.p
-      className="text-[22px] tracking-widest "
+      className="text-[20px] tracking-widest "
       variants={{
         hidden: { opacity: 0, y: 8 },
         show: { opacity: 1, y: 0 },

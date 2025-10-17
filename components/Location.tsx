@@ -23,7 +23,7 @@ export default function BtypeLocation() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
       className=" bg-[#F5F9F5] flex flex-col items-center justify-center px-6 py-16 text-center text-gray-800"
     >
       <div className="mb-10">

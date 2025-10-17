@@ -32,7 +32,7 @@ export default function Invitation() {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.35 }} // 35%
+        viewport={{ once: true, amount: 0.35 }} // 35%
       >
         <motion.div variants={fadeUp}>
           <p className="text-sm tracking-[0.25em] text-[#b5cda4] mb-2 font-[EBGaramond]">
@@ -51,7 +51,7 @@ export default function Invitation() {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.7 }} // 70%
+        viewport={{ once: true, amount: 0.7 }} // 70%
         className="space-y-1 leading-relaxed text-[14px]"
       >
         <motion.p variants={fadeUp}>
@@ -66,7 +66,7 @@ export default function Invitation() {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.8 }} // 80%
+        viewport={{ once: true, amount: 0.8 }} // 80%
         className="space-y-1 leading-relaxed text-base mt-8 text-[14px]"
       >
         <motion.p variants={fadeUp}>
@@ -83,7 +83,7 @@ export default function Invitation() {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.9 }} // 90%에서 트리거
+        viewport={{ once: true, amount: 0.9 }} // 90%에서 트리거
         className="mt-12 text-base leading-relaxed space-y-2"
       >
         <motion.div variants={fadeUp} className="flex text-[15px]">

@@ -9,6 +9,13 @@ import Location from "@/components/Location";
 import MidImage from "@/components/MidImage";
 import IntroLoader from "@/components/IntroLoader";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: "no",
+};
+
 export default function Home() {
   return (
     <div className="text-center w-full max-w-[480px]">

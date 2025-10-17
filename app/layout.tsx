@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "관휘와 나영, 결혼합니다",
-  description: "2025년 12월 27일 (토) 11:20 더베뉴지서울 1층 네이처홀",
+  description: "2025. 12. 27.(토) 오전 11:20 더베뉴지서울 1층 네이처홀",
   metadataBase: new URL("https://wedding-invitation-nygh.vercel.app/"),
   icons: {
     icon: "/favicon.png",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://wedding-invitation-nygh.vercel.app/",
     title: "관휘와 나영, 결혼합니다",
-    description: "2025년 12월 27일 (토) 11:20 더베뉴지서울 1층 네이처홀",
+    description: "2025. 12. 27.(토) 오전 11:20 더베뉴지서울 1층 네이처홀",
     images: [
       {
         url: "https://wedding-invitation-nygh.vercel.app/assets/images/thumbnail2.jpeg",

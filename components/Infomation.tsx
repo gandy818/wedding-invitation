@@ -58,7 +58,7 @@ export default function BtypeInfomation() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.35 }}
+      viewport={{ once: true, amount: 0.35 }}
       className="bg-white py-[50px] px-4 text-gray-800 h-[725px]"
     >
       <motion.div variants={fadeUp} className="text-center">

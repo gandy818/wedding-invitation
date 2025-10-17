@@ -186,7 +186,7 @@ export default function Account() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.45 }}
+      viewport={{ once: true, amount: 0.45 }}
       className="bg-white py-[50px] px-6 text-center text-gray-800"
     >
       <motion.div variants={fadeUp}>
