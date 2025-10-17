@@ -55,11 +55,13 @@ export default function Invitation() {
         className="space-y-1 leading-relaxed text-[14px]"
       >
         <motion.p variants={fadeUp}>
-          두 사람이 하나가 될 새 인생을 시작합니다.
+          모든 것이 불확실하던 청춘의 한자락에서
         </motion.p>
-        <motion.p variants={fadeUp}>사랑으로 가득 채워</motion.p>
-        <motion.p variants={fadeUp}>즐거움은 나누고 어려움은 이겨내는</motion.p>
-        <motion.p variants={fadeUp}>함께 나아가는 삶을 꾸리겠습니다.</motion.p>
+        <motion.p variants={fadeUp}>유일하게 확신이던 사람입니다.</motion.p>
+        <motion.p variants={fadeUp}>수많은 어제를 지나</motion.p>
+        <motion.p variants={fadeUp}>
+          매일이 함께인 내일을 같이 그려가고자 합니다.
+        </motion.p>
       </motion.div>
 
       <motion.div
@@ -69,14 +71,12 @@ export default function Invitation() {
         viewport={{ once: true, amount: 0.8 }} // 80%
         className="space-y-1 leading-relaxed text-base mt-8 text-[14px]"
       >
+        <motion.p variants={fadeUp}>그 첫걸음을 늘 곁에서 응원해 주신</motion.p>
+        <motion.p variants={fadeUp}>소중한 분들과 함께하고 싶습니다.</motion.p>
         <motion.p variants={fadeUp}>
-          언제나 저희 곁에 있어주신 소중한 분들과
+          특별하고 의미 있는 하루에 함께하시어
         </motion.p>
-        <motion.p variants={fadeUp}>함께 첫 시작을 내딛고 싶습니다.</motion.p>
-        <motion.p variants={fadeUp}>
-          특별하고 의미있는 하루에 함께하시어
-        </motion.p>
-        <motion.p variants={fadeUp}>저희의 시작을 축복해주세요.</motion.p>
+        <motion.p variants={fadeUp}>저희의 시작을 축복해 주세요.</motion.p>
       </motion.div>
 
       <motion.div
