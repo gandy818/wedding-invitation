@@ -174,7 +174,7 @@ export default function MidImageCanvas() {
         {/* 캔버스에 프레임을 그립니다 */}
         <canvas
           ref={canvasRef}
-          className="absolute inset-0 block w-full h-full [backface-visibility:hidden] [transform:translateZ(0)] will-change-transform"
+          className="absolute inset-0 block w-full h-[720px] [backface-visibility:hidden] [transform:translateZ(0)] will-change-transform"
           aria-label="scroll sequence"
         />
 
@@ -192,7 +192,7 @@ export default function MidImageCanvas() {
             }}
             className={`text-[52px]  text-[#d27096] italic tracking-wide font-medium ${greatVibes.className}`}
           >
-            Our love story
+            Waltz of Love
           </motion.h2>
           <motion.p
             style={{
@@ -202,7 +202,7 @@ export default function MidImageCanvas() {
             }}
             className="mt-4 text-[12px] text-[#d27096] "
           >
-            JOIN US IN CELEBRATING OUR WEDDING
+            천천히 내려보세요 신랑 신부가 춤을 춰요
           </motion.p>
         </div>
       </div>
