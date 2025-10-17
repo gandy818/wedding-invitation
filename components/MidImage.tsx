@@ -204,7 +204,7 @@ export default function MidImageCanvas() {
               y: subY,
               willChange: "opacity, transform",
             }}
-            className="mt-4 text-[12px] text-[#d27096] font-[EBGaramond]"
+            className="mt-1 text-[12px] text-[#d27096] font-[EBGaramond]"
           >
             스크롤을 내려, 두사람을 춤추게 해주세요
           </motion.p>
