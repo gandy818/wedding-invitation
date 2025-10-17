@@ -33,7 +33,7 @@ export default function MidImageCanvas() {
   // framer-motion: 해당 구간에서만 진행도 추적
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end start"],
+    offset: ["start 40%", "end start"],
   });
 
   // 텍스트 오버레이 애니메이션(원 코드 유지)
@@ -149,11 +149,15 @@ export default function MidImageCanvas() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // 스크롤 변화 → 프레임 그리기 (상태 업데이트 없이 rAF로 캔버스만 갱신)
+  // 추가: 언제부터 프레임을 돌릴지 (스크롤 비율)
+  const START_AT = 0.2; // 12% 지점부터 시작 (원하는 만큼 조절)
+
+  // ...
   useMotionValueEvent(scrollYProgress, "change", (p) => {
-    const next = Math.min(TOTAL - 1, Math.round(p * SPEED * TOTAL));
+    // p를 START_AT 이후로 정규화 (이전 구간은 0으로 고정)
+    const norm = Math.max(0, (p - START_AT) / (1 - START_AT)); // 0~1
+    const next = Math.min(TOTAL - 1, Math.round(norm * SPEED * TOTAL));
     if (next === drawingIndexRef.current) return;
-    // 프레임이 일부만 로드된 상태에서도 느리게라도 그리기 시도
     requestAnimationFrame(() => drawFrame(next));
   });
 
@@ -166,11 +170,11 @@ export default function MidImageCanvas() {
   }, []);
 
   // sticky 섹션 높이
-  const sectionStyle = useMemo(() => "relative h-[1500px] bg-white", []);
+  const sectionStyle = useMemo(() => "relative h-[1300px] bg-white", []);
 
   return (
     <section ref={sectionRef} className={sectionStyle}>
-      <div className="sticky top-10 h-screen w-full overflow-hidden">
+      <div className="sticky top-10 h-[720px] w-full overflow-hidden">
         {/* 캔버스에 프레임을 그립니다 */}
         <canvas
           ref={canvasRef}
@@ -200,9 +204,9 @@ export default function MidImageCanvas() {
               y: subY,
               willChange: "opacity, transform",
             }}
-            className="mt-4 text-[12px] text-[#d27096]"
+            className="mt-4 text-[12px] text-[#d27096] font-[EBGaramond]"
           >
-            천천히 내려보세요 신랑 신부가 춤을 춰요
+            스크롤을 내려, 두사람을 춤추게 해주세요
           </motion.p>
         </div>
       </div>

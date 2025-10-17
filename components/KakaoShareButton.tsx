@@ -37,15 +37,9 @@ export default function KakaoShareButton() {
 
     try {
       window.Kakao.Link.sendCustom({
-        templateId: 1324897,
-        // templateArgs: {
-        //   groom: "김관휘",
-        //   bride: "유나영",
-        //   date: "2025.12.27",
-        //   place: "더베뉴지서울 1층 네이처홀",
-        //   linkUrl: "https://wedding-invitation-nygh.vercel.app/",
-        // },
+        templateId: 125155,
       });
+      console.log(window.Kakao);
     } catch (e) {
       console.error(e);
       alert("카카오 공유 중 오류가 발생했습니다.");
@@ -57,7 +51,7 @@ export default function KakaoShareButton() {
       onClick={handleShare}
       className="bg-[#FEE500] text-[#000000] rounded-lg px-4 py-2 font-semibold"
     >
-      💛 카카오톡으로 공유하기
+      💛 카카오톡 공유하기
     </button>
   );
 }
