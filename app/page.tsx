@@ -19,7 +19,7 @@ export default function Home() {
         <Invitation />
         <WeddingDay />
         <GroomAndBride />
-        {/* <MidImage /> */}
+        <MidImage />
         <Gallery />
         <Infomation />
         <Account />

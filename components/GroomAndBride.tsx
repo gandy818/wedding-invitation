@@ -18,10 +18,10 @@ export default function GroomAndBride() {
   });
 
   // 히스테리시스 임계치 (내려갈 때/올라갈 때 분리)
-  const GROOM_ENTER = 0.3; // 이 값 이상 내려가면 신랑(자녀) ON
-  const GROOM_EXIT = 0.24; // 이 값 미만 올라가면 신랑(자녀) OFF → 부모님 ON
-  const BRIDE_ENTER = 0.4;
-  const BRIDE_EXIT = 0.34;
+  const GROOM_ENTER = 0.4; // 이 값 이상 내려가면 신랑(자녀) ON
+  const GROOM_EXIT = 0.37; // 이 값 미만 올라가면 신랑(자녀) OFF → 부모님 ON
+  const BRIDE_ENTER = 0.45;
+  const BRIDE_EXIT = 0.42;
 
   const [showGroom, setShowGroom] = useState(false);
   const [showBride, setShowBride] = useState(false);

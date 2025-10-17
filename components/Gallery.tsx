@@ -5,16 +5,17 @@ import { Gallery, Item } from "react-photoswipe-gallery";
 import "photoswipe/style.css";
 import images from "@/lib/gallery-images";
 import { motion, type Variants } from "framer-motion";
+import { useMemo, useState } from "react";
 
-type GalleryImg = {
-  alt: string;
-  src: StaticImageData;
-  width: number;
-  height: number;
-};
+const INITIAL = 9;
+const STEP = 9;
 
 export default function GallerySection() {
-  const list = images as GalleryImg[];
+  const list = images;
+  const [showCount, setShowCount] = useState(INITIAL);
+
+  const shown = useMemo(() => list.slice(0, showCount), [list, showCount]);
+  const hasMore = showCount < list.length;
 
   const container: Variants = {
     hidden: { opacity: 0, y: 32 },
@@ -44,7 +45,7 @@ export default function GallerySection() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.25 }}
       className="px-4 py-[50px] text-center text-gray-800"
     >
       <motion.div variants={fadeUp}>
@@ -59,28 +60,25 @@ export default function GallerySection() {
           variants={fadeUp}
           className="mx-auto grid max-w-5xl grid-cols-3 gap-4 sm:grid-cols-3"
         >
-          {list.map(({ src, alt, width, height }, idx) => {
-            const url = src.src;
-            const w = width ?? src.width;
-            const h = height ?? src.height;
-
+          {shown.map(({ src, alt, width, height }, idx) => {
+            const url = typeof src === "string" ? src : src;
             return (
               <Item
-                key={idx}
+                key={url}
                 original={url}
                 thumbnail={url}
-                width={w}
-                height={h}
+                width={width}
+                height={height}
               >
                 {({ ref, open }) => (
                   <button
-                    ref={ref}
+                    ref={ref as any}
                     onClick={open}
                     className="relative aspect-square overflow-hidden rounded-xl cursor-pointer hover:opacity-90 transition"
                     aria-label={`open ${alt}`}
                   >
                     <Image
-                      src={src}
+                      src={url}
                       alt={alt}
                       fill
                       className="object-cover"
@@ -94,6 +92,24 @@ export default function GallerySection() {
           })}
         </motion.div>
       </Gallery>
+
+      <motion.div variants={fadeUp} className="mt-8">
+        {hasMore ? (
+          <button
+            onClick={() => setShowCount((c) => Math.min(c + STEP, list.length))}
+            className=" px-6 py-3 text-[16px] font-medium  text-[#809e84]  transition cursor-pointer focus:outline-0"
+          >
+            사진 더보기
+            <Image
+              src="/assets/icons/heartArrow.png"
+              alt="화살표"
+              width={70}
+              height={70}
+              className="mt-2 ml-2"
+            />
+          </button>
+        ) : null}
+      </motion.div>
     </motion.section>
   );
 }
