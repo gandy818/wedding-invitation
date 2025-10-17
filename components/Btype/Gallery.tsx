@@ -6,15 +6,8 @@ import { Gallery, Item } from "react-photoswipe-gallery";
 import "photoswipe/style.css";
 import images from "@/lib/gallery-images";
 
-type GalleryImg = {
-  alt: string;
-  src: StaticImageData;
-  width: number;
-  height: number;
-};
-
 export default function GallerySection() {
-  const list = images as GalleryImg[];
+  const list = images;
 
   const container: Variants = {
     hidden: { opacity: 0, y: 32 },
@@ -55,9 +48,9 @@ export default function GallerySection() {
       <Gallery>
         <div className="mx-auto grid max-w-5xl grid-cols-3 gap-4 sm:grid-cols-3">
           {list.map(({ src, alt, width, height }, idx) => {
-            const url = src.src;
-            const w = width ?? src.width;
-            const h = height ?? src.height;
+            const url = src;
+            const w = width ?? width;
+            const h = height ?? height;
 
             return (
               <Item

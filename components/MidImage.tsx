@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useState, useMemo, useRef } from "react";
 
@@ -16,11 +11,20 @@ export default function MidImage() {
     offset: ["start start", "end start"],
   });
 
-  const TOTAL = 20; // 프레임 수 (0~22)
-  const SPEED = 2.0; // ↑ 값을 키울수록 더 빨리 바뀜 (예: 1.5~2.5)
+  // 스크롤에 따른 오버레이 텍스트 페이드/이동
+  // (구간은 취향에 맞게 조정: 0.08~0.22 사이에서 서서히 나타남)
+  const titleOpacity = useTransform(scrollYProgress, [0.08, 0.22], [0, 1]);
+  const titleY = useTransform(scrollYProgress, [0.0, 0.22], [24, 0]);
+
+  const subOpacity = useTransform(scrollYProgress, [0.12, 0.28], [0, 1]);
+  const subY = useTransform(scrollYProgress, [0.04, 0.28], [18, 0]);
+
+  const TOTAL = 20;
+  const SPEED = 2.0;
 
   const [index, setIndex] = useState(0);
-  useMotionValueEvent(scrollYProgress, "change", (p) => {
+  // NOTE: mount 애니메이션 제거하고 스크롤 기반만 사용
+  scrollYProgress.on("change", (p) => {
     const next = Math.min(TOTAL, Math.round(p * SPEED * TOTAL));
     if (next !== index) setIndex(next);
   });
@@ -43,29 +47,35 @@ export default function MidImage() {
             priority
           />
 
-          {/* 상단 페이드 */}
+          {/* 상단/하단 페이드 */}
           <div className="pointer-events-none absolute top-0 left-0 w-full h-[25vh] bg-gradient-to-t from-transparent to-white" />
-
-          {/* 하단 페이드 */}
           <div className="pointer-events-none absolute bottom-0 left-0 w-full h-[28vh] bg-gradient-to-b from-transparent to-white" />
 
-          {/* 오버레이 텍스트 */}
-          <div className="absolute inset-0 flex flex-col text-center">
+          {/* 오버레이 텍스트 (스크롤 시 서서히 등장) */}
+          <div
+            className="absolute inset-0 flex flex-col items-center 
+          top-15 text-center"
+          >
             <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                opacity: titleOpacity,
+                y: titleY,
+                willChange: "opacity, transform",
+              }}
               className="text-[42px] font-[EBGaramond] text-[#d27096] italic tracking-wide"
             >
               Our love story
             </motion.h2>
+
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2, delay: 0.3 }}
-              className="mt-4 text-[18px] font-medium text-[#d27096] font-[EBGaramond]"
+              style={{
+                opacity: subOpacity,
+                y: subY,
+                willChange: "opacity, transform",
+              }}
+              className="mt-4 text-[14px] text-[#d27096] font-[EBGaramond]"
             >
-              KIM GWAN HWI &nbsp;&nbsp;&nbsp;&nbsp; YU NA YOUNG
+              OIN US IN CELEBRATING OUR WEDDING
             </motion.p>
           </div>
         </motion.div>

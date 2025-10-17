@@ -88,7 +88,7 @@ export default function GroomAndBride() {
               {showGroom || showBride ? "울" : "웠던"}
             </motion.span>
           </motion.p>
-          <motion.p variants={fadeUp}>그날의 신랑신부를 소개합니다!</motion.p>
+          <motion.p variants={fadeUp}>그날의 신랑신부를 소개합니다</motion.p>
         </div>
 
         <div className="mx-auto grid max-w-4xl grid-cols-2 relative  gap-2">
