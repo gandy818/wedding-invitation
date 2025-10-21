@@ -1,16 +1,14 @@
-const MAX = 57;
+const MAX = 60;
 
 const images = Array.from({ length: MAX }, (_, i) => {
   const num = String(i + 1).padStart(2, "0"); // 01, 02, ... 57
   const isLandscape =
-    num === "04" ||
-    num === "07" ||
-    num === "12" ||
-    num === "15" ||
-    num === "18" ||
-    num === "21" ||
-    num === "23" ||
-    num === "25"; // 가로형
+    num === "06" ||
+    num === "08" ||
+    num === "22" ||
+    num === "30" ||
+    num === "40" ||
+    num === "55"; // 가로형
 
   return {
     alt: `image${num}`,
