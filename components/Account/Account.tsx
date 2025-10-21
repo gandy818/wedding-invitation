@@ -196,7 +196,7 @@ export default function Account() {
         <h2 className="text-[18px] font-semibold mb-4">마음 전하실 곳</h2>
       </motion.div>
 
-      <div className="text-[16px] leading-relaxed text-gray-700 mb-10">
+      <div className="text-[15px] leading-relaxed text-gray-700 mb-10">
         <motion.p variants={fadeUp}>저희 두 사람의 소중한 시작을</motion.p>
         <motion.p variants={fadeUp}>
           축하해주시는 모든 분들께 감사드립니다.

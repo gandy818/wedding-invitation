@@ -18,10 +18,10 @@ export default function GroomAndBride() {
   });
 
   // 히스테리시스 임계치 (내려갈 때/올라갈 때 분리)
-  const GROOM_ENTER = 0.4; // 이 값 이상 내려가면 신랑(자녀) ON
-  const GROOM_EXIT = 0.37; // 이 값 미만 올라가면 신랑(자녀) OFF → 부모님 ON
-  const BRIDE_ENTER = 0.45;
-  const BRIDE_EXIT = 0.42;
+  const GROOM_ENTER = 0.45; // 이 값 이상 내려가면 신랑(자녀) ON
+  const GROOM_EXIT = 0.43; // 이 값 미만 올라가면 신랑(자녀) OFF → 부모님 ON
+  const BRIDE_ENTER = 0.46;
+  const BRIDE_EXIT = 0.44;
 
   const [showGroom, setShowGroom] = useState(false);
   const [showBride, setShowBride] = useState(false);
@@ -79,14 +79,14 @@ export default function GroomAndBride() {
           </h2>
         </motion.div>
 
-        <div className="text-[16px] leading-relaxed text-gray-700 mb-10">
+        <div className="text-[15px] leading-relaxed text-gray-700 mb-10">
           <motion.p variants={fadeUp}>
             누구보다 멋있고 아름다
             <motion.span
               key={showGroom || showBride ? "future" : "past"} // key가 달라야 애니메이션 트리거됨
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
             >
               {showGroom || showBride ? "울" : "웠던"}
             </motion.span>

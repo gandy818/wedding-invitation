@@ -1,4 +1,4 @@
-const MAX = 60;
+const MAX = 57;
 
 const images = Array.from({ length: MAX }, (_, i) => {
   const num = String(i + 1).padStart(2, "0"); // 01, 02, ... 57

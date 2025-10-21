@@ -124,7 +124,7 @@ export default function BtypeInfomation() {
                 className="h-[300px] w-full object-cover"
                 priority
               />
-              <ul className="mt-6 leading-8 text-left ml-5 text-[14px]">
+              <ul className="mt-6 leading-7 text-left ml-5 text-[14px]">
                 <li className="list-disc">
                   연회장은 지하 1층에 있습니다. 에스컬레이터를 이용하시면 더욱
                   편리하게 이동하실 수 있습니다.
@@ -147,7 +147,7 @@ export default function BtypeInfomation() {
                 className="h-[300px] w-full object-cover"
                 priority
               />
-              <ul className="mt-6 leading-8 text-left ml-5 text-[14px]">
+              <ul className="mt-6 leading-7 text-left ml-5 text-[14px]">
                 <li className="list-disc">
                   1층 로비 2게이트 앞에 국민은행과 하나은행 ATM이 마련되어
                   있습니다.
@@ -171,7 +171,7 @@ export default function BtypeInfomation() {
                 className="h-[300px] w-full object-cover"
                 priority
               />
-              <ul className="mt-6 leading-8 text-left ml-5 text-[14px]">
+              <ul className="mt-6 leading-7 text-left ml-5 text-[14px]">
                 <li className="list-disc">
                   밝은 옷도 어울리는 홀입니다. 부담 갖지 마시고 편안한 차림으로
                   참석해주세요.

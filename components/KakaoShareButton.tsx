@@ -1,4 +1,6 @@
 "use client";
+import { MessageCircle } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useCallback } from "react";
 
 declare global {
@@ -8,9 +10,8 @@ declare global {
 }
 
 export default function KakaoShareButton() {
-  // ✅ 카카오 SDK 로드 및 초기화
+  //  카카오 SDK 로드 및 초기화
   useEffect(() => {
-    // 이미 로드된 경우 방지
     if (window.Kakao && window.Kakao.isInitialized()) return;
 
     const script = document.createElement("script");
@@ -28,7 +29,6 @@ export default function KakaoShareButton() {
     };
   }, []);
 
-  // ✅ 클릭 시 공유 실행
   const handleShare = useCallback(() => {
     if (!window.Kakao?.Link) {
       alert("카카오 SDK가 아직 로드되지 않았습니다.");
@@ -49,9 +49,15 @@ export default function KakaoShareButton() {
   return (
     <button
       onClick={handleShare}
-      className="bg-[#FEE500] text-[#000000] rounded-lg px-4 py-2 font-semibold"
+      className="bg-[#FEE500] text-[#000000e6] flex items-center text-[13px] gap-1 rounded-sm px-4 py-2 font-semibold shadow-lg"
     >
-      💛 카카오톡 공유하기
+      <Image
+        src="/assets/icons/kakaotalk.svg"
+        width={20}
+        height={18}
+        alt="kakaotalk"
+      />
+      카톡 공유하기
     </button>
   );
 }

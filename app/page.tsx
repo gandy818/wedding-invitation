@@ -8,7 +8,7 @@ import Account from "@/components/Account/Account";
 import Location from "@/components/Location";
 import MidImage from "@/components/MidImage";
 import IntroLoader from "@/components/IntroLoader";
-import KakaoShareButton from "@/components/KakaoShareButton";
+import Footer from "@/components/Footer";
 
 export const viewport = {
   width: "device-width",
@@ -32,10 +32,7 @@ export default function Home() {
         <Infomation />
         <Account />
         <Location />
-
-        <div className="my-10 flex justify-center">
-          <KakaoShareButton />
-        </div>
+        <Footer />
       </main>
     </div>
   );

@@ -3,7 +3,14 @@
 import { motion, type Variants } from "framer-motion";
 import { MapPin } from "lucide-react";
 
-export default function BtypeLocation() {
+export default function Location() {
+  const handleCopy = () => {
+    navigator.clipboard.writeText("서울 강서구 강서로 388").then(
+      () => alert("주소가 복사되었습니다. 😉"),
+      () => alert("주소 복사에 실패했습니다. 🥲")
+    );
+  };
+
   const container: Variants = {
     hidden: { opacity: 0, y: 32 },
     show: {
@@ -33,12 +40,15 @@ export default function BtypeLocation() {
         <h1 className="text-[18px] font-semibold">오시는 길</h1>
       </div>
 
-      <div className="text-[16px] leading-relaxed mb-10">
-        <p className="flex items-center justify-center gap-2">
+      <div className="text-[15px] leading-relaxed mb-10">
+        <p
+          className="flex items-center justify-center gap-2"
+          onClick={handleCopy}
+        >
           <MapPin className="text-[#b5cda4] w-4 h-4" />
           서울 강서구 강서로 388
         </p>
-        <p className="text-gray-600 mt-4 text-[16px]">
+        <p className="text-gray-600 mt-4 text-[15px]">
           더베뉴지서울 1층 네이처홀
         </p>
       </div>
@@ -65,7 +75,10 @@ export default function BtypeLocation() {
 
         {/* 하단 바 */}
         <div className="flex items-center justify-between px-4 py-3  border-gray-200 bg-white text-sm">
-          <div className="flex items-center gap-2 text-gray-700 text-[14px]">
+          <div
+            className="flex items-center gap-2 text-gray-700 text-[14px]"
+            onClick={handleCopy}
+          >
             <MapPin className="text-gray-500 w-4 h-4 " />
             서울 강서구 강서로 388
           </div>
