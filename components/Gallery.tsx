@@ -66,7 +66,10 @@ export default function GallerySection() {
         <h2 className="text-[18px] font-semibold mb-10">우리의 소중한 순간</h2>
       </motion.div>
 
-      <Gallery>
+      <Gallery
+        id="wedding-gallery" // ← 이 한 줄로 해시 내비+뒤로가기 닫힘 활성화
+        options={{ returnFocus: false }} // (선택) 닫힐 때 포커스 점프 방지
+      >
         {/* 보이는 썸네일들 */}
         <motion.div
           variants={fadeUp}
