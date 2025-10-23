@@ -1,12 +1,12 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { Gallery, Item } from "react-photoswipe-gallery";
 import "photoswipe/style.css";
-import images from "@/lib/gallery-images";
+import images from "@/lib/B/gallery-images";
 
-export default function GallerySection() {
+export default function BTypeGallerySection() {
   const list = images;
 
   const container: Variants = {
@@ -37,15 +37,17 @@ export default function GallerySection() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.05 }}
       className="px-4 py-[50px] text-center text-gray-800"
     >
       <motion.div variants={fadeUp} className="mb-10">
-        <p className="text-sm tracking-[0.25em] text-[#B5CDA4] mb-2">GALLERY</p>
-        <h2 className="text-2xl font-semibold">우리의 소중한 순간</h2>
+        <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2">
+          GALLERY
+        </p>
+        <h2 className="text-[24px] font-semibold">우리의 소중한 순간</h2>
       </motion.div>
 
-      <Gallery>
+      <Gallery id="wedding-gallery" options={{ returnFocus: false }}>
         <div className="mx-auto grid max-w-5xl grid-cols-3 gap-4 sm:grid-cols-3">
           {list.map(({ src, alt, width, height }, idx) => {
             const url = src;

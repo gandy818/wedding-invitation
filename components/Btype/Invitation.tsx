@@ -36,13 +36,13 @@ export default function BtypeInvitation() {
         viewport={{ once: true, amount: 0.35 }} // 더 이르게(35%) 트리거
       >
         <motion.div variants={fadeUp}>
-          <p className="text-sm tracking-[0.25em] text-[#b5cda4] mb-2">
+          <p className="text-[14px] tracking-[0.25em] text-[#b5cda4] mb-2">
             INVITATION
           </p>
         </motion.div>
 
         <motion.div variants={fadeUp}>
-          <h1 className="text-2xl font-semibold mb-10">
+          <h1 className="text-[24px] font-semibold mb-10">
             소중한 분들을 초대합니다
           </h1>
         </motion.div>
@@ -100,15 +100,23 @@ export default function BtypeInvitation() {
         viewport={{ once: true, amount: 0.9 }} // 90%에서 트리거
         className="mt-12 text-base leading-relaxed space-y-2"
       >
-        <motion.div variants={fadeUp}>
-          <p>
-            김태성 · 유명옥 의 아들 <span className="font-semibold">관휘</span>
+        <motion.div variants={fadeUp} className="flex ">
+          <p className="w-[65px]">김태성</p>
+          <p className="w-[15px]"> · </p>
+          <p className="w-[65px]">유명옥</p>
+          <p className="w-[85px] text-left">
+            의<span className="ml-[12px] ">장남</span>
           </p>
+          <p className="font-semibold ml-2 text-[17px]">김관휘</p>
         </motion.div>
-        <motion.div variants={fadeUp}>
-          <p>
-            유영근 · 박순덕 의 딸 <span className="font-semibold">나영</span>
+        <motion.div variants={fadeUp} className="flex ">
+          <p className="w-[65px]">유영근</p>
+          <p className="w-[15px]"> · </p>
+          <p className="w-[65px]">박순덕</p>
+          <p className="w-[85px] text-left">
+            의<span className="ml-[12px] ">차녀</span>
           </p>
+          <p className="font-semibold ml-2 text-[17px]">유나영</p>
         </motion.div>
       </motion.div>
     </div>
