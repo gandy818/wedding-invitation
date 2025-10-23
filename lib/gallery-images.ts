@@ -5,6 +5,7 @@ const images = Array.from({ length: MAX }, (_, i) => {
   const isLandscape =
     num === "06" ||
     num === "08" ||
+    num === "13" ||
     num === "22" ||
     num === "30" ||
     num === "40" ||

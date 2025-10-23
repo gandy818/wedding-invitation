@@ -35,7 +35,9 @@ export default function IntroLoader() {
             animate="show"
             variants={{
               hidden: { transition: { staggerChildren: 0.0 } },
-              show: { transition: { staggerChildren: 1.0 } }, // 전체 3초 안에 3단계
+              show: {
+                transition: { delayChildren: 0.4, staggerChildren: 0.9 },
+              }, // 전체 3초 안에 3단계
             }}
           >
             <Line>
