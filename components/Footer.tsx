@@ -17,7 +17,7 @@ export default function Footer() {
     <div className="pb-20 flex gap-2 justify-center bg-[#F5F9F5]">
       <KakaoShareButton />
       <button
-        className="bg-white text-[#000000e6] flex items-center text-[13px] gap-1 rounded-lg px-4 py-2 font-semibold shadow-lg leading-none"
+        className="bg-white text-[#000000e6] cursor-pointer flex items-center text-[13px] gap-1 rounded-lg px-4 py-2 font-semibold shadow-lg leading-none"
         onClick={() => handleCopy()}
       >
         <Link width={20} height={18} />
