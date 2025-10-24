@@ -49,7 +49,7 @@ export default function KakaoShareButton() {
   return (
     <button
       onClick={handleShare}
-      className="bg-[#FEE500] cursor-pointer text-[#000000e6] flex items-center text-[13px] gap-1 rounded-lg px-4 py-2 font-semibold shadow-lg leading-none"
+      className="bg-[#FEE500] cursor-pointer text-[#000000e6] flex items-center text-[13px] gap-1 rounded-lg px-4 py-2.5 font-semibold shadow-lg leading-none"
     >
       <Image
         src="/assets/icons/kakaotalk.svg"
