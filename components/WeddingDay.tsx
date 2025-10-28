@@ -17,15 +17,6 @@ export default function WeddingDay() {
     },
   };
 
-  const fadeUp: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1.9, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
-
   return (
     <section className="bg-white py-[50px] flex flex-col items-center text-center text-gray-800">
       <motion.div

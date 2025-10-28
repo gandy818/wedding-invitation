@@ -7,10 +7,14 @@ import Infomation from "@/components/Btype/Infomation";
 import Account from "@/components/Btype/Account/Account";
 import Location from "@/components/Btype/Location";
 import Parents from "@/components/Btype/Parents";
+import IntroLoader from "@/components/Btype/IntroLoader";
+import Footer from "@/components/Btype/Footer";
 
 export default function BType() {
   return (
     <div className="text-center w-full max-w-[480px]">
+      <IntroLoader />
+
       <main>
         <Main />
         <Invitation />
@@ -21,6 +25,7 @@ export default function BType() {
         <Infomation />
         <Account />
         <Location />
+        <Footer />
       </main>
     </div>
   );

@@ -1,5 +1,5 @@
 "use client";
-import { MessageCircle } from "lucide-react";
+
 import Image from "next/image";
 import { useEffect, useCallback } from "react";
 
@@ -38,6 +38,7 @@ export default function KakaoShareButton() {
     try {
       window.Kakao.Link.sendCustom({
         templateId: 125155,
+        link: "https://wedding-invitation-nygh.vercel.app",
       });
       console.log(window.Kakao);
     } catch (e) {

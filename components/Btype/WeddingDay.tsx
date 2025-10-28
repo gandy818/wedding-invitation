@@ -62,7 +62,7 @@ export default function BtypeWeddingDay() {
       />
 
       {/* 달력 */}
-      <motion.div variants={fadeUp} className="text-center w-[60%]">
+      <motion.div variants={fadeUp} className="text-center w-[70%]">
         <div className="grid grid-cols-7 gap-1 mb-4 text-[13px] font-semibold items-center">
           <span className="text-red-500">S</span>
           <span>M</span>
@@ -111,15 +111,19 @@ export default function BtypeWeddingDay() {
             day === "27" ? (
               <div
                 key={i}
-                className="w-8 h-8 text-[80%] flex items-center justify-center mx-auto rounded-full bg-[#D86343] text-white font-medium"
+                className="w-8 h-8 text-[16px] flex items-center justify-center mx-auto rounded-full bg-[#D86343] text-white font-medium"
               >
                 {day}
               </div>
             ) : (
               <div
                 key={i}
-                className={`text-gray-800 ${
-                  i % 7 === 0 && day ? "text-red-500" : ""
+                className={`text-[16px] ${
+                  i % 7 === 0 && day
+                    ? "text-[#ab0000]"
+                    : day === "25"
+                    ? "text-[#ab0000]"
+                    : ""
                 }`}
               >
                 {day}
