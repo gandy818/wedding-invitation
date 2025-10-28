@@ -64,7 +64,7 @@ export default function BtypeParents() {
             />
           </div>
 
-          <div className="mt-4 text-[14px] xs:text-[18px]">
+          <div className="mt-4 text-[14px] xs:text-[16px]">
             <span className="text-[#B5CDA4] font-medium">신랑</span>
             <span className="mx-2 text-gray-400">|</span>
             <span className="text-gray-700 ">관휘의 부모님</span>
@@ -91,7 +91,7 @@ export default function BtypeParents() {
             />
           </div>
 
-          <div className="mt-4 text-[14px] xs:text-[18px]">
+          <div className="mt-4 text-[14px] xs:text-[16px]">
             <span className="text-[#ba7d60] font-medium">신부</span>
             <span className="mx-2 text-gray-400">|</span>
             <span className="text-gray-700">나영의 부모님</span>
