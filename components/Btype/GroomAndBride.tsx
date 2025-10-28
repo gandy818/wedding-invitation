@@ -57,7 +57,9 @@ export default function BtypeGroomAndBride() {
 
           <div className="mt-10 text-[16px] mb-16">
             <span className="text-[#B5CDA4] font-medium mr-2.5">신랑</span>
-            <span className="text-gray-700 text-[20px] font-bold">김관휘</span>
+            <span className="text-gray-700 text-[20px] font-semibold">
+              김관휘
+            </span>
           </div>
         </div>
 
@@ -76,7 +78,9 @@ export default function BtypeGroomAndBride() {
           <div className="mt-10 text-[16px] mb-16">
             <span className="text-[#ff957a] font-medium mr-2.5">신부</span>
 
-            <span className="text-gray-700 text-[20px] font-bold">유나영</span>
+            <span className="text-gray-700 text-[20px] font-semibold">
+              유나영
+            </span>
           </div>
         </div>
       </div>

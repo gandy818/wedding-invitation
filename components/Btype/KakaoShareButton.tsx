@@ -36,9 +36,14 @@ export default function BtypeKakaoShareButton() {
     }
 
     try {
+      const currentUrl = window.location.href;
+      console.log(currentUrl);
+
       window.Kakao.Link.sendCustom({
         templateId: 125155,
-        link: "https://wedding-invitation-nygh.vercel.app/B",
+        templateArgs: {
+          link: currentUrl,
+        },
       });
       console.log(window.Kakao);
     } catch (e) {

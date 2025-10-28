@@ -6,7 +6,7 @@ import { Link } from "lucide-react";
 export default function BtypeFooter() {
   const handleCopy = () => {
     navigator.clipboard
-      .writeText("https://wedding-invitation-nygh.vercel.app/")
+      .writeText("https://wedding-invitation-nygh.vercel.app/B")
       .then(
         () => alert("주소가 복사되었습니다. 😉"),
         () => alert("주소 복사에 실패했습니다. 🥲")
