@@ -35,13 +35,11 @@ export default function KakaoShareButton() {
       return;
     }
 
-    const currentUrl = window.location.href;
-
     try {
       window.Kakao.Link.sendCustom({
         templateId: 125155,
         templateArgs: {
-          link: currentUrl,
+          link: "",
         },
       });
       console.log(window.Kakao);

@@ -36,13 +36,10 @@ export default function BtypeKakaoShareButton() {
     }
 
     try {
-      const currentUrl = window.location.href;
-      console.log(currentUrl);
-
       window.Kakao.Link.sendCustom({
         templateId: 125155,
         templateArgs: {
-          link: currentUrl,
+          link: "B",
         },
       });
       console.log(window.Kakao);
