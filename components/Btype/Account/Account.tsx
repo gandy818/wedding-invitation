@@ -200,12 +200,9 @@ export default function BtypeAccount() {
 
       <div className="text-lg leading-relaxed text-gray-700 mb-10">
         <motion.p variants={fadeUp}>저희 두 사람의 소중한 시작을</motion.p>
-        <motion.p variants={fadeUp}>
-          축하해주시는 모든 분들께 감사드립니다.
-        </motion.p>
-        <motion.p variants={fadeUp}>
-          따뜻한 진심을 감사히 오래도록 간직하고
-        </motion.p>
+        <motion.p variants={fadeUp}>축하해주시는 모든 분들께</motion.p>
+        <motion.p variants={fadeUp}>진심으로 감사드립니다.</motion.p>
+        <motion.p variants={fadeUp}>따뜻한 진심을 오래도록 간직하고</motion.p>
         <motion.p variants={fadeUp}>행복하게 잘 살겠습니다.</motion.p>
       </div>
       <div className="w-full mx-auto flex flex-col gap-4 py-8">

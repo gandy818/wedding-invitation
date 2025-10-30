@@ -42,7 +42,7 @@ export default function BtypeGroomAndBride() {
         <h2 className="text-[24px] font-semibold ">신랑 & 신부를 소개합니다</h2>
       </motion.div>
 
-      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 xxs:grid-cols-2">
+      <div className="mx-auto grid max-w-4xl gap-8 grid-cols-2">
         <div className="flex flex-col items-center">
           <div className="relative aspect-[1/1] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
             <Image
@@ -57,7 +57,7 @@ export default function BtypeGroomAndBride() {
 
           <div className="mt-10 text-[16px] mb-16">
             <span className="text-[#B5CDA4] font-medium mr-2.5">신랑</span>
-            <span className="text-gray-700 text-[20px] font-semibold">
+            <span className="text-gray-700 text-[18px] font-semibold">
               김관휘
             </span>
           </div>
@@ -78,7 +78,7 @@ export default function BtypeGroomAndBride() {
           <div className="mt-10 text-[16px] mb-16">
             <span className="text-[#ff957a] font-medium mr-2.5">신부</span>
 
-            <span className="text-gray-700 text-[20px] font-semibold">
+            <span className="text-gray-700 text-[18px] font-semibold">
               유나영
             </span>
           </div>

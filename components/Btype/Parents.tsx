@@ -50,7 +50,7 @@ export default function BtypeParents() {
 
       <motion.div
         variants={fadeUp}
-        className="mx-auto grid max-w-4xl grid-cols-1 gap-8 xxs:grid-cols-2"
+        className="mx-auto grid max-w-4xl gap-8 grid-cols-2"
       >
         <div className="flex flex-col items-center">
           <div className="relative aspect-[1/1] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
@@ -70,7 +70,7 @@ export default function BtypeParents() {
             <span className="text-gray-700 ">관휘의 부모님</span>
           </div>
 
-          <div className="mt-3 text-[18px] xs:text-[20px] mb-16">
+          <div className="mt-3 text-[16px] mb-16">
             <span className="font-semibold">김태성</span>
             <span className="mx-2">
               <Heart className=" w-4 h-4 inline text-[#ff957a] fill-[#ff957a]" />
@@ -91,13 +91,13 @@ export default function BtypeParents() {
             />
           </div>
 
-          <div className="mt-4 text-[14px] xs:text-[16px]">
+          <div className="mt-4 text-[14px]">
             <span className="text-[#ba7d60] font-medium">신부</span>
             <span className="mx-2 text-gray-400">|</span>
             <span className="text-gray-700">나영의 부모님</span>
           </div>
 
-          <div className="mt-3 text-[18px] xs:text-[20px] mb-16">
+          <div className="mt-3 text-[16px] mb-16">
             <span className="font-semibold">유영근</span>
             <span className="mx-2">
               <Heart className=" w-4 h-4 inline text-[#ff957a] fill-[#ff957a]" />

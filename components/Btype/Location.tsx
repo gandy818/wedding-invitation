@@ -88,7 +88,7 @@ export default function BtypeLocation() {
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-md text-[#6ea682] font-medium hover:underline"
           >
-            카카오 길찾기
+            길찾기
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"
@@ -109,12 +109,12 @@ export default function BtypeLocation() {
           <p className="text-gray-500 mb-4 text-md">
             버튼을 누르면 앱에서 길안내가 시작됩니다.
           </p>
-          <div className="flex justify-between">
+          <div className="flex flex-col gap-4 justify-between">
             <a
               href="nmap://search?query=더베뉴지서울&appname=https://ourfirstletter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-[31%] py-2 rounded-lg shadow-lg bg-white transition"
+              className="flex items-center w-full justify-center  py-2 rounded-lg shadow-lg bg-white transition"
             >
               <img
                 src="/assets/icons/navermap.jpg"
@@ -127,7 +127,7 @@ export default function BtypeLocation() {
               href="tmap://search?name=더베뉴지서울"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-[31%] py-2 rounded-lg shadow-lg bg-white transition"
+              className="flex items-center justify-center w-full py-2 rounded-lg shadow-lg bg-white transition"
             >
               <img
                 src="/assets/icons/tmap.png"
@@ -140,7 +140,7 @@ export default function BtypeLocation() {
               href="http://place.map.kakao.com/8700757"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-[31%] py-2 rounded-lg shadow-lg bg-white transition"
+              className="flex items-center justify-center w-full py-2 rounded-lg shadow-lg bg-white transition"
             >
               <img
                 src="/assets/icons/kakaomap.png"

@@ -33,13 +33,13 @@ export default function BtypeMain() {
         style={{ bottom: 56 }}
       >
         <div className="grid grid-cols-3 items-center">
-          <span className="text-sm font-semibold tracking-wide text-[#118b50]">
+          <span className="text-[14px] font-semibold tracking-wide text-[#118b50]">
             김관휘
           </span>
-          <span className="text-sm font-semibold tracking-widest text-[#118b50]">
+          <span className="text-[14px] font-semibold tracking-wide text-[#118b50]">
             2025. 12. 27.
           </span>
-          <span className="text-sm font-semibold tracking-wide text-[#118b50]">
+          <span className="text-[14px] font-semibold tracking-wide text-[#118b50]">
             유나영
           </span>
         </div>

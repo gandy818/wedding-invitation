@@ -25,14 +25,14 @@ export default function BtypeAccountItem({
   return (
     <div className="flex flex-col gap-2 py-4">
       {/* 이름/관계 */}
-      <div className="flex items-center gap-2 text-gray-800 text-lg">
+      <div className="flex items-center gap-2 text-gray-800 text-[18px]">
         <span className="text-gray-600">{relation}</span>
         <span className="font-semibold">{name}</span>
       </div>
 
       {/* 은행/계좌 + 복사 버튼 */}
       <div className="flex items-center justify-between">
-        <span className="text-gray-700 text-lg">
+        <span className="text-gray-700 text-[16px]">
           {bank} {account}
         </span>
         <button
