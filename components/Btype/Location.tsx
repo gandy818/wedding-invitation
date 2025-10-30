@@ -61,16 +61,10 @@ export default function BtypeLocation() {
             >
               <img
                 className="map"
-                src="http://t1.daumcdn.net/roughmap/imgmap/c20f6da94ba05c68f68943d75ed43d1ad99612f1115dfadf1eda0f5a9a3ae976"
+                src="http://t1.daumcdn.net/roughmap/imgmap/dbeb270bc776477d856f38c142602b1abbd576e1fc28332835faaf3a9b99c899"
                 width="100%"
                 height="358px"
                 alt="더베뉴지서울 지도"
-                style={{
-                  border: "1px solid #ccc",
-                  display: "block",
-                  width: "100%",
-                  height: "auto",
-                }}
               />
             </a>
           </div>
