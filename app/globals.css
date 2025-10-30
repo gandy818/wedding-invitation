@@ -142,4 +142,6 @@
 html,
 body {
   font-family: "GothicA1", sans-serif;
+  -webkit-text-size-adjust: 100%; /* iOS Safari에서 시스템 글자 확대 방지 */
+  text-size-adjust: 100%;
 }
