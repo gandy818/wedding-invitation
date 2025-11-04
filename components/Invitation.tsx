@@ -60,7 +60,7 @@ export default function Invitation() {
         <motion.p variants={fadeUp}>유일하게 확신이던 사람입니다.</motion.p>
 
         <motion.p variants={fadeUp} className="mt-8">
-          이제는 그 사람과 수많은 어제를 지나
+          이제 그 사람과 수많은 어제를 지나
         </motion.p>
         <motion.p variants={fadeUp}>
           매일이 함께인 내일을 같이 그려가고자 합니다.
