@@ -188,7 +188,7 @@ export default function BtypeAccount() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.35 }} // 섹션의 35%가 보이면 실행, 한 번만
-      className="bg-white py-[50px] px-6 text-center text-gray-800"
+      className="bg-white py-[50px] px-3 text-center text-gray-800"
     >
       <motion.p
         variants={fadeUp}

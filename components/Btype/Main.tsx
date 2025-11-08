@@ -37,7 +37,7 @@ export default function BtypeMain() {
             김관휘
           </span>
           <span className="text-[14px] font-semibold tracking-wide text-[#118b50]">
-            2025. 12. 27.
+            25. 12. 27.
           </span>
           <span className="text-[14px] font-semibold tracking-wide text-[#118b50]">
             유나영

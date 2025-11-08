@@ -27,7 +27,7 @@ const fadeUp: Variants = {
 
 export default function BtypeInvitation() {
   return (
-    <div className="bg-[#F5F9F5] flex flex-col items-center justify-center px-6 py-12 text-center text-gray-800">
+    <div className="bg-[#F5F9F5] flex flex-col items-center justify-center px-3 py-12 text-center text-gray-800">
       {/* ── 1) 상단 타이틀: 35%에서 재생 ─────────────────────────── */}
       <motion.div
         variants={container}
@@ -43,7 +43,7 @@ export default function BtypeInvitation() {
 
         <motion.div variants={fadeUp}>
           <h1 className="text-[24px] font-semibold mb-10">
-            소중한 분들을 초대합니다
+            소중한 분을 초대합니다
           </h1>
         </motion.div>
       </motion.div>

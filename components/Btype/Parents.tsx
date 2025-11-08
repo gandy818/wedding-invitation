@@ -34,7 +34,7 @@ export default function BtypeParents() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.35 }} // 섹션의 35%가 보이면 실행, 한 번만
-      className="bg-white py-[50px] px-6 text-center text-gray-800"
+      className="bg-white py-[50px] px-3 text-center text-gray-800"
     >
       <motion.div variants={fadeUp} className="mb-10">
         <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2">
@@ -42,7 +42,7 @@ export default function BtypeParents() {
         </p>
         <h2 className="text-[24px] font-semibold mb-4">우리의 부모님</h2>
 
-        <div className="text-lg leading-relaxed text-gray-700">
+        <div className="text-[16px] leading-relaxed text-gray-700">
           <p>저희의 시작을 사랑으로 응원해주신</p>
           <p>양가 부모님을 소개합니다.</p>
         </div>
@@ -65,9 +65,9 @@ export default function BtypeParents() {
           </div>
 
           <div className="mt-4 text-[14px] xs:text-[16px]">
-            <span className="text-[#B5CDA4] font-medium">신랑</span>
-            <span className="mx-1 text-gray-400">|</span>
-            <span className="text-gray-700 ">관휘의 부모님</span>
+            <p className="text-[#B5CDA4] font-medium">신랑</p>
+            {/* <span className="mx-1 text-gray-400">|</span> */}
+            <p className="text-gray-700 ">관휘의 부모님</p>
           </div>
 
           <div className="mt-3 text-[16px] mb-16">
@@ -92,9 +92,9 @@ export default function BtypeParents() {
           </div>
 
           <div className="mt-4 text-[14px]">
-            <span className="text-[#ba7d60] font-medium">신부</span>
-            <span className="mx-1 text-gray-400">|</span>
-            <span className="text-gray-700">나영의 부모님</span>
+            <p className="text-[#ba7d60] font-medium">신부</p>
+            {/* <span className="mx-1 text-gray-400">|</span> */}
+            <p className="text-gray-700">나영의 부모님</p>
           </div>
 
           <div className="mt-3 text-[16px] mb-16">
