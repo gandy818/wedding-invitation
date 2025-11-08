@@ -50,7 +50,7 @@ export default function BtypeParents() {
 
       <motion.div
         variants={fadeUp}
-        className="mx-auto grid max-w-4xl gap-8 grid-cols-2"
+        className="mx-auto grid max-w-4xl gap-4 grid-cols-2"
       >
         <div className="flex flex-col items-center">
           <div className="relative aspect-[1/1] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">

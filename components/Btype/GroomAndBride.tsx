@@ -42,7 +42,7 @@ export default function BtypeGroomAndBride() {
         <h2 className="text-[24px] font-semibold ">신랑 & 신부를 소개합니다</h2>
       </motion.div>
 
-      <div className="mx-auto grid max-w-4xl gap-8 grid-cols-2">
+      <div className="mx-auto grid max-w-4xl gap-4 grid-cols-2">
         <div className="flex flex-col items-center">
           <div className="relative aspect-[1/1] w-full max-w-md overflow-hidden rounded-2xl shadow-sm">
             <Image

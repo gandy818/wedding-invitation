@@ -56,9 +56,7 @@ export default function BtypeInvitation() {
         viewport={{ once: true, amount: 0.7 }} // 더 늦게(70%) 트리거
         className="space-y-1 leading-relaxed text-base"
       >
-        <motion.div variants={fadeUp}>
-          <p>두 사람이 하나가 될 새 인생을 시작합니다.</p>
-        </motion.div>
+    
         <motion.div variants={fadeUp}>
           <p>사랑으로 가득 채워</p>
         </motion.div>
@@ -79,7 +77,7 @@ export default function BtypeInvitation() {
         className="space-y-1 leading-relaxed text-base mt-8"
       >
         <motion.div variants={fadeUp}>
-          <p>언제나 저희 곁에 있어주신 소중한 분들과</p>
+          <p>저희 곁에 있어주신 소중한 분들과</p>
         </motion.div>
         <motion.div variants={fadeUp}>
           <p>함께 첫 시작을 내딛고 싶습니다.</p>
@@ -101,19 +99,19 @@ export default function BtypeInvitation() {
         className="mt-12 text-base leading-relaxed space-y-2"
       >
         <motion.div variants={fadeUp} className="flex ">
-          <p className="w-[65px]">김태성</p>
-          <p className="w-[15px]"> · </p>
-          <p className="w-[65px]">유명옥</p>
-          <p className="w-[85px] text-left">
+          <p className="w-[55px]">김태성</p>
+          <p className="w-[12px]"> · </p>
+          <p className="w-[55px]">유명옥</p>
+          <p className="w-[70px] text-left">
             의<span className="ml-[12px] ">장남</span>
           </p>
           <p className="font-semibold ml-2 text-[17px]">김관휘</p>
         </motion.div>
         <motion.div variants={fadeUp} className="flex ">
-          <p className="w-[65px]">유영근</p>
-          <p className="w-[15px]"> · </p>
-          <p className="w-[65px]">박순덕</p>
-          <p className="w-[85px] text-left">
+          <p className="w-[55px]">유영근</p>
+          <p className="w-[12px]"> · </p>
+          <p className="w-[55px]">박순덕</p>
+          <p className="w-[70px] text-left">
             의<span className="ml-[12px] ">차녀</span>
           </p>
           <p className="font-semibold ml-2 text-[17px]">유나영</p>
