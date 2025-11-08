@@ -40,7 +40,7 @@ export default function BtypeParents() {
         <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2">
           OUR PARENTS
         </p>
-        <h2 className="text-[24px] font-semibold mb-4">우리의 부모님</h2>
+        <h2 className="text-[22px] font-semibold mb-4">우리의 부모님</h2>
 
         <div className="text-[16px] leading-relaxed text-gray-700">
           <p>저희의 시작을 사랑으로 응원해주신</p>

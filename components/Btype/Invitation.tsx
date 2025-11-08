@@ -42,7 +42,7 @@ export default function BtypeInvitation() {
         </motion.div>
 
         <motion.div variants={fadeUp}>
-          <h1 className="text-[24px] font-semibold mb-10">
+          <h1 className="text-[22px] font-semibold mb-10">
             소중한 분을 초대합니다
           </h1>
         </motion.div>
@@ -54,9 +54,8 @@ export default function BtypeInvitation() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.7 }} // 더 늦게(70%) 트리거
-        className="space-y-1 leading-relaxed text-base"
+        className="space-y-1 leading-relaxed text-[16px]"
       >
-    
         <motion.div variants={fadeUp}>
           <p>사랑으로 가득 채워</p>
         </motion.div>
@@ -74,7 +73,7 @@ export default function BtypeInvitation() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.8 }} // 80%에서 트리거
-        className="space-y-1 leading-relaxed text-base mt-8"
+        className="space-y-1 leading-relaxed text-[16px] mt-8"
       >
         <motion.div variants={fadeUp}>
           <p>저희 곁에 있어주신 소중한 분들과</p>

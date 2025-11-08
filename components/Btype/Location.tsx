@@ -30,7 +30,7 @@ export default function BtypeLocation() {
         <p className="text-sm tracking-[0.25em] text-[#b5cda4] mb-2">
           LOCATION
         </p>
-        <h1 className="text-2xl font-semibold">오시는 길</h1>
+        <h1 className="text-[22px] font-semibold">오시는 길</h1>
       </div>
 
       <div className="text-xl leading-relaxed mb-10">

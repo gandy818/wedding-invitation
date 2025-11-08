@@ -40,10 +40,10 @@ export default function BtypeWeddingDay() {
         </p>
 
         <div className="mt-6">
-          <p className="text-xl font-medium mb-1">
+          <p className="text-[18px] font-medium mb-1">
             2025.12.27. 토요일 오전 11:20
           </p>
-          <p className="text-lg font-medium text-gray-700">
+          <p className="text-[17px] font-medium text-gray-700">
             더베뉴지서울 1층 네이처홀
           </p>
         </div>

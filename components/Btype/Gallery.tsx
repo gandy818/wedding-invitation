@@ -44,7 +44,7 @@ export default function BTypeGallerySection() {
         <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2">
           GALLERY
         </p>
-        <h2 className="text-[24px] font-semibold">우리의 소중한 순간</h2>
+        <h2 className="text-[22px] font-semibold">우리의 소중한 순간</h2>
       </motion.div>
 
       <Gallery id="wedding-gallery" options={{ returnFocus: false }}>

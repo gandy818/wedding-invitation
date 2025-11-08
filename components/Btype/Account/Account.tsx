@@ -196,9 +196,9 @@ export default function BtypeAccount() {
       >
         <Heart className=" w-4 h-4 inline text-[#ff957a] fill-[#ff957a]" />
       </motion.p>
-      <h2 className="text-2xl font-semibold mb-4">마음 전하실 곳</h2>
+      <h2 className="text-[22px] font-semibold mb-4">마음 전하실 곳</h2>
 
-      <div className="text-lg leading-relaxed text-gray-700 mb-10">
+      <div className="text-[16px] leading-relaxed text-gray-700 mb-10">
         <motion.p variants={fadeUp}>저희 두 사람의 소중한 시작을</motion.p>
         <motion.p variants={fadeUp}>축하해주시는 모든 분들께</motion.p>
         <motion.p variants={fadeUp}>진심으로 감사드립니다.</motion.p>

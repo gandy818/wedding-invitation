@@ -39,7 +39,7 @@ export default function BtypeGroomAndBride() {
         <p className="text-[14px] tracking-[0.25em] text-[#B5CDA4] mb-2">
           GROOM & BRIDE
         </p>
-        <h2 className="text-[24px] font-semibold ">신랑 & 신부를 소개합니다</h2>
+        <h2 className="text-[22px] font-semibold ">신랑 & 신부를 소개합니다</h2>
       </motion.div>
 
       <div className="mx-auto grid max-w-4xl gap-4 grid-cols-2">
