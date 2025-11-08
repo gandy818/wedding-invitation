@@ -38,20 +38,21 @@ export default function BtypeKakaoShareButton() {
     window.Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
-        title: "김관휘 ♥ 유나영, 결혼합니다!",
+        title: "김관휘 ♥ 유나영, 결혼합니다!!",
         description: "2025.12.27(토) 오전 11:20 더베뉴지 서울 1층 네이처홀",
-        imageUrl: "https://store.brav.co.kr/assets/images/thumbnail.jpeg",
+        imageUrl:
+          "https://wedding-invitation-nygh.vercel.app/assets/images/thumbnail.jpeg",
         link: {
-          mobileWebUrl: "https://store.brav.co.kr/B",
-          webUrl: "https://store.brav.co.kr/B",
+          mobileWebUrl: "https://wedding-invitation-nygh.vercel.app/B",
+          webUrl: "https://wedding-invitation-nygh.vercel.app/B",
         },
       },
       buttons: [
         {
           title: "모바일 청첩장 보기",
           link: {
-            mobileWebUrl: "https://store.brav.co.kr/B",
-            webUrl: "https://store.brav.co.kr/B",
+            mobileWebUrl: "https://wedding-invitation-nygh.vercel.app/B",
+            webUrl: "https://wedding-invitation-nygh.vercel.app/B",
           },
         },
       ],
@@ -69,7 +70,7 @@ export default function BtypeKakaoShareButton() {
         height={18}
         alt="kakaotalk"
       />
-      카톡 공유하기
+      카톡 공유하기!
     </button>
   );
 }
