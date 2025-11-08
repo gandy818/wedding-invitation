@@ -91,7 +91,7 @@ export default function BtypeParents() {
             />
           </div>
 
-          <div className="mt-4 text-[14px]">
+          <div className="mt-4 text-[14px] xs:text-[16px]">
             <p className="text-[#ba7d60] font-medium">신부</p>
             {/* <span className="mx-1 text-gray-400">|</span> */}
             <p className="text-gray-700">나영의 부모님</p>

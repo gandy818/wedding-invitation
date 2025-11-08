@@ -42,7 +42,6 @@ export default function BtypeKakaoShareButton() {
           link: "B",
         },
       });
-      console.log(window.Kakao);
     } catch (e) {
       console.error(e);
       alert("카카오 공유 중 오류가 발생했습니다.");
