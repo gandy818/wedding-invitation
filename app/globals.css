@@ -141,7 +141,8 @@
 /* === 폰트 글로벌 적용 예시 === */
 html,
 body {
-  font-family: "GothicA1", sans-serif;
-  -webkit-text-size-adjust: 100%; /* iOS Safari에서 시스템 글자 확대 방지 */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
