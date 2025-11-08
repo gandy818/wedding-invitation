@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://wedding-invitation-nygh.vercel.app/",
+    url: "https://wedding-invitation-nygh.vercel.app/B",
     title: "관휘와 나영, 결혼합니다",
     description: "2025. 12. 27.(토) 오전 11:20 더베뉴지서울 1층 네이처홀",
     images: [
