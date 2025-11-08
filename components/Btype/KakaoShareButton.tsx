@@ -30,22 +30,32 @@ export default function BtypeKakaoShareButton() {
   }, []);
 
   const handleShare = useCallback(() => {
-    if (!window.Kakao?.Link) {
+    if (!window.Kakao?.Share) {
       alert("카카오 SDK가 아직 로드되지 않았습니다.");
       return;
     }
 
-    try {
-      window.Kakao.Link.sendCustom({
-        templateId: 125155,
-        templateArgs: {
-          link: "B",
+    window.Kakao.Share.sendDefault({
+      objectType: "feed",
+      content: {
+        title: "김관휘 ♥ 유나영, 결혼합니다!",
+        description: "2025.12.27(토) 오전 11:20 더베뉴지 서울 1층 네이처홀",
+        imageUrl: "https://store.brav.co.kr/assets/images/thumbnail.jpeg",
+        link: {
+          mobileWebUrl: "https://store.brav.co.kr/B",
+          webUrl: "https://store.brav.co.kr/B",
         },
-      });
-    } catch (e) {
-      console.error(e);
-      alert("카카오 공유 중 오류가 발생했습니다.");
-    }
+      },
+      buttons: [
+        {
+          title: "모바일 청첩장 보기",
+          link: {
+            mobileWebUrl: "https://store.brav.co.kr/B",
+            webUrl: "https://store.brav.co.kr/B",
+          },
+        },
+      ],
+    });
   }, []);
 
   return (
