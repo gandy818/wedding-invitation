@@ -23,7 +23,7 @@ export default function BtypeLocation() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }} // 섹션의 35%가 보이면 실행, 한 번만
+      viewport={{ once: true, amount: 0.15 }} // 섹션의 35%가 보이면 실행, 한 번만
       className=" bg-[#F5F9F5] flex flex-col items-center justify-center px-3 py-16 text-center text-gray-800"
     >
       <div className="mb-10">
